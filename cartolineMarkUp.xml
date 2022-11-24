@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE teiCorpus SYSTEM "tei_all.dtd">
+
+<teiCorpus xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Progetto Codifica di Testi 20/21 Cartoline ad Olivia Turtura </title>
+                <respStmt>
+                    <resp>Trascrizione a cura di:</resp>
+                    <name xml:id="LC">Lorenzo Cecio</name>
+                    <name xml:id="AB">Alessandro Belli</name>
+                </respStmt>
+
+                <respStmt>
+                    <resp>Ente di Appartenenza</resp>
+                    <name type="comune" xml:id="SP">Comune della Spezia</name>
+                </respStmt>  
+
+            </titleStmt>
+
+            <editionStmt>
+                <edition> 
+                    Studenti del corso di Codifica di Testi, corso di laurea triennale di Informatica Umanistica, Università di Pisa 
+                    <date when="2021">2021</date>
+                </edition>
+
+                <respStmt>
+                    <resp>Codificato da:</resp>
+                    <name ref="#LC"></name>
+                    <name ref="#AB"></name
+                </respStmt>
+
+                <respStmt>
+                    <resp>Compilatore:</resp>
+                    <name xml:id="TC">Tommaso Castagneto</name>
+                </respStmt>
+
+                <respStmt>
+                    <resp>Responsabile scientifico:</resp>
+                    <name xml:id="GP">Giacomo Paolicchi</name>
+                    <name xml:id="ES">Enrica Salvatori</name>
+                </respStmt>
+
+                <respStmt>
+                    <resp>Funzionario responsabile:</resp>
+                    <name xml:id="MR">Marzia Ratti</name>
+                </respStmt>
+
+            </editionStmt>
+
+            <publicationStmt>
+                <publisher xml:id="UdP">Università di Pisa</publisher>
+                <pubPlace xml:id="PI">Pisa</pubPlace>
+
+                <availability>
+                    <p>Available under licence only</p>
+                </availability>
+
+                <date when="2018">2018</date>
+                <distributor>LabCD</distributor>
+
+                <address>
+                    <addrLine>Laboratorio di Cultura Digitale - Università di Pisa</addrLine>
+                    <addrLine ref="PI"></addrLine>
+                </address>
+
+            </publicationStmt>
+            
+            <sourceDesc>
+                <msDesc>
+					<msIdentifier>
+						<country xml:id="IT">Italia</country>
+						<settlement xml:id="SP">La Spezia (SP)</settlement>
+
+						<repository xml:id="MCE">
+						Museo Civico Etnografico "Giovanni Podenzana", Sezione dei cimeli garibaldini e della Prima Guerra Mondiale
+                        </repository>
+
+					</msIdentifier>
+
+					<msContents>
+						<summary >Cartolina Artistica</summary>
+						<textLang>Italiano</textLang>
+					</msContents>
+
+				</msDesc>
+				<listPerson>
+
+                    <person xml:id="GT">
+                        <persName>
+                            <forename>Giuseppe</forename>
+                            <surname>Turtura</surname>
+                        </persName>
+                        <sex>M</sex>
+                    </person>
+
+                    <person xml:id="OT">
+                        <persName>
+                            <forename>Oliva</forename>
+                            <surname>Turtura</surname>
+                        </persName>
+                        <sex>F</sex>
+                    </person>
+
+                </listPerson>  
+                <listPlace>
+                    <place xml:id="MO">
+                        <placeName>Luogo del mittente: Modena </placeName>
+                        <district  type="comune"> Modena </district>
+                        <district type="provincia"> MO </district>
+                        <country  key="N"> IT </country>
+                    </place>
+                    <place xml:id="RV">
+                        <placeName> Luogo del destinatario: Ravenna </placeName>
+                        <district  type="comune"> Ravenna </district>
+                        <district type="provincia"> RV </district>
+                        <country  key="N"> IT </country>
+                    </place>
+                </listPlace>   
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+
+     <!-- CARTOLINA n° 134 -->
+    <TEI>
+        <teiHeader>
+            <fileDesc>
+                <titleStmt>
+                    <title>Cartolina n° 134</title>
+                </titleStmt>
+
+                <editionStmt>
+                    <edition>Studenti del corso di Codifica di Testi, corso di laurea triennale di Informatica Umanistica, Università di Pisa 
+                    <date>2021</date>
+                    </edition>
+
+                    <respStmt>
+                        <resp>Codificato da:</resp>
+                        <name ref="#LC"></name>
+                        <name ref="#AB"></name>
+                    </respStmt>
+
+                    <respStmt>
+                        <resp>Compilatore:</resp>
+                        <name ref="#TC"></name>
+                    </respStmt>
+
+                    <respStmt>
+                        <resp>Responsabile scientifico:</resp>
+                        <name ref="#GP"></name>
+                        <name ref="#ES"></name>
+                    </respStmt>
+
+                    <respStmt>
+                        <resp>Funzionario responsabile</resp>
+                        <name ref="#MR"></name>
+                    </respStmt>
+                    
+                </editionStmt>
+
+                <publicationStmt>
+                    <publisher>Unipi</publisher>
+                    <pubPlace>Pisa</pubPlace>
+                    <availability>
+                        <p>Available under licence only</p>
+                    </availability>
+                    <date when="2018">2018</date>
+                    <distributor>LabCD</distributor>
+                    <address>
+                        <addrLine>Laboratorio di Cultura Digitale - Università di Pisa</addrLine>
+                        <addrLine>Pisa</addrLine>
+                    </address>
+                    <!-- Note esterne alla codifica -->
+                    <notesStmt>
+                        <note>La cartolina presenta macchie, graffi e piegature causate dal tempo </note>
+                        <note>La cartolina è stata correttamente spedita e ricevuta, si capisce dal francobollo e dal timbro </note>
+                    </notesStmt> 
+                </publicationStmt>
+
+                <sourceDesc>
+                    <bibl>
+                        <!-- TITOLO -->
+                        <title>Fieno ricchezza</title>
+                        <pubPlace ref="#MI"></pubPlace>
+                        <date>1917</date>
+                    </bibl>
+                    <msDesc>
+                        <msIdentifier>
+                            <country ref="#IT"></country>
+                            <settlement ref="#SP"></settlement>
+                            <repository ref="#MCE">
+                            Museo Civico Etnografico "Giovanni Podenzana", Sezione dei cimeli garibaldini e della Prima Guerrra Mondiale
+                            </repository>
+                            <idno>7694_134_001/002</idno>
+                        </msIdentifier>
+                        <!-- CONTENUTI -->
+                        <msContents>
+                            <summary>Cartolina Artistica</summary>
+                            <textLang>Italiano</textLang>
+                        </msContents>
+                        <physDesc>
+                            <objectDesc>
+                                <supportDesc>
+                                    <support>
+                                        <objectType>Cartolina</objectType>
+                                        <material>Carta</material>
+                                        <dimensions unit="cm">
+                                            <height>9</height>
+                                            <width>14</width>
+                                        </dimensions>
+                                        <stamp>Francobollo - Regno d'Italia</stamp>
+                                        <stamp>Timbro - Modena Ferrovia</stamp>
+                                    </support>
+                                    <condition>Buono</condition>
+                                </supportDesc>
+                            </objectDesc>
+                        </physDesc>
+                    </msDesc>
+                    <listPerson>
+                        <person>
+                            <persName>
+                                <forename>Giovanni</forename>
+                                <surname>Coliola </surname>
+                            </persName>
+                            <sex>M</sex>
+                            <occupation n="1">Tenente colonnello</occupation>
+                        </person>
+                        <person>
+                            <persName>
+                                <forename>Oliva</forename>
+                                <surname>Turtura</surname>
+                            </persName>
+                            <sex>F</sex>
+                        </person>
+                        <person xml:id="JBD">
+                        <persName>
+                            <forename>Jean Baptiste</forename>
+                            <surname>Duffaud</surname>
+                        </persName>
+                        <sex>M</sex>
+                        </person>
+                    </listPerson>
+                 </sourceDesc>
+            </fileDesc>
+            
+            <profileDesc>
+                <correspDesc>
+                    <correspAction type="sent">
+                        <persName ref="#GC">Giovanni Coliola</persName>
+                        <placeName ref="#MO">Modena</placeName>
+                        <!-- DATA data di invio da timbro (postage) o da manoscritto (writing) -->
+                        <date type="writing" when="08051918">08/04/1918</date>
+                    </correspAction>
+                
+                    <correspAction type="received">
+                        <persName ref="#OT">Oliva Turtura</persName>
+                    </correspAction>
+                </correspDesc>
+                <textClass>
+                    <keywords>
+                        <!-- descrizione -->
+                        <term>Cartolina</term>
+                        <!-- tipologia -->
+                        <term>Cartolina Artistica</term>
+                        <!-- descrizione -->
+                        <term>Innamorati al tramonto</term>
+                    </keywords>
+                </textClass>
+                <langUsage>
+                    <language ident="it-IT" usage="94">Italiano del Novecento</language>
+                    <language ident="fr-FR" usage="2">Francese<note>Lingua utilizzata per il titolo della cartolina.</note></language>
+                    <language ident="ru-RU" usage="2">Russo<note>Lingua utilizzata per la traduzione del titolo della cartolina scritto in francese</note></language>
+                </langUsage>
+            </profileDesc>
+        </teiHeader>
+
+        <facsimile>
+            <!-- Fronte -->
+            <surface  type="fronte" xml:id="F174">
+                <graphic url="img/174F.jpg"/>
+            </surface>
+            
+            <!-- Retro -->
+            <surface type="retro" xml:id="R174">
+                <graphic url="img/174R.jpg"/>
+                <!-- Codice Catalogo -->
+                <zone xml:id="cod" ulx="963" uly="90" lrx="1125" lry="195"/>
+                <!-- timbro e francobollo -->
+                <zone xml:id="timbro" ulx="1191" uly="2" lrx="1610" lry="340" />
+                <!-- Indirizzo e destinatario-->
+                <zone xml:id="ind1" ulx="824" uly="347" lrx="1510" lry="530"/>
+                <zone xml:id="ind2" ulx="826" uly="532" lrx="1550" lry="648"/>
+                <zone xml:id="ind3" ulx="780" uly="631" lrx="1618" lry="782"/>
+                <zone xml:id="ind4" ulx="818" uly="772" lrx="1590" lry="976"/>
+                <!-- Luogo e data -->
+                <zone xml:id="luogo" ulx="636" uly="5" lrx="815" lry="1033"/>
+                <!-- Testo riga1-->
+                <zone xml:id="testo1" ulx="535" uly="30" lrx="693" lry="767"/>
+                <!-- Testo riga2-->
+                 <zone xml:id="testo2" ulx="412" uly="52" lrx="561" lry="1029"/>
+                <!-- Saluto e firma -->
+                <zone xml:id="sal" ulx="99" uly="16" lrx="356" lry="1026"/>
+                <!-- Tipografia -->
+                 <!-- Marchio -->
+                <zone xml:id="stamp" uulx="33" uly="36" lrx="169" lry="181"/>
+                <!-- Francese -->
+                <zone xml:id="stamp1" ulx="17" uly="358" lrx="96" lry="900"/>
+                <!-- Salon de Paris -->
+                <zone xml:id="stamp2" ulx="65" uly="941" lrx="243" lry="970"/>
+                 <!-- Illeggibile -->
+                <zone xml:id="stamp3" ulx="763" uly="641" lrx="796" lry="931"/>
+
+            </surface>
+        </facsimile>
+
+        <!-- DEFINIZIONE -->
+        <text type="cartolina" xml:id="cartolina174">
+            <!-- TRASCRIZIONE -->
+            <body>
+                <div type="fronte">
+                    <figure>
+                        <graphic url="img/174F.jpg"/>
+                        <figDesc>
+                            L'immagine rappresenta un uomo e una donna uniti in un abbraccio e seduti su uno scoglio circondato dal mare, al calar del sole.
+                        </figDesc>
+                        <head>Coppia al tramonto</head>
+                    </figure>
+                </div>
+
+                <div type="retro" facs="#R174">
+                    <div type="codice">
+                        <p>
+                            <num type="cardinal">
+                                <idno facs="#cod">174</idno>
+                            </num>
+                        </p>
+                    </div>
+                    <div type="destination">
+                        <p>
+                            <!-- Timbro -->
+                            <stamp type="postmark" facs="#timbro">
+                                <mentioned rend="circle"><unclear reason="faded" resp="#AM">MODENA FERROVIA</unclear>
+                                </mentioned>
+                                <date when="1918-06-09">-9<unclear reason="faded">.6.</unclear>18</date>
+                            </stamp>
+                            <!-- Francobollo -->
+                            <stamp type="postage" facs="#timbro">Francobollo da 5 centesimi del Regno d'Italia</stamp>
+                        </p>
+                        <!-- Indirizzo -->
+                        <p style="indirizzo">
+                            <address>
+                                <addrLine facs="#ind1"> 
+                                    <lb n="1"/>
+                                    <choice> 
+                                        <abbr> <hi rend="decorated">G</hi>ent<am>.</am></abbr> 
+                                        <expan> Gent <ex> ilissima </ex> </expan>
+                                    </choice>
+                                    <choice>
+                                        <abbr> <hi rend="decorated">S</hi>ig<am>.</am>na </abbr> 
+                                        <expan> Sig<ex>nori</ex>na </expan>
+                                    </choice>
+                                </addrLine>
+                                <addrLine facs="#ind2"> 
+                                    <lb n="2"/>
+                                    <persName  ref="#OT"> 
+                                        <name type="person"><hi rend="decorated">O</hi>liva</name>
+                                        <space/>
+                                        <surname><hi rend="decorated">T</hi>urtura </surname>
+                                    </persName> 
+                                </addrLine>
+                                <addrLine facs="#ind3"> 
+                                    <lb n="3"/>
+                                    <hi rend="decorated">V</hi>ia 
+                                    <hi rend="decorated">G</hi>irolamo 
+                                    <hi rend="decorated">R</hi>ossi 
+                                    <num type="cardinal">58</num> 
+                                </addrLine>
+                                <addrLine facs="#ind4"> 
+                                    <placeName ref="#RV"> 
+                                        <lb n="4" /><district type="comune"><hi rend="decorated">Ravenna</hi></district> 
+                                    </placeName> 
+                                </addrLine>
+                            </address>
+                            </p>
+                    </div>
+
+                    <div type="typography">
+                        <p><stamp type="typography" facs="#17410T">
+                            <hi rend="decorated">S</hi> 
+                            <hi rend="decorated">P</hi> 
+                            <hi rend="decorated">A</hi>
+                        </stamp></p>
+                        <p><stamp type="typography" facs="#stamp" xml:lang="fr">
+                            Pastorale en<placeName>Provence</placeName><pc type="punto">.</pc>
+                        </stamp></p>
+                        <p><stamp type="typography" facs="#stamp1">
+                            Pastorale in <placeName>Provence</placeName><pc type="punto">.</pc>
+                        </stamp></p>
+                        <p><stamp type="typography" facs="#stamp2">
+                        	<num>645</num><pc type="punto">.</pc><persName><abbr>J</abbr><expan resp="#AM">Jean</expan><pc type="punto">.</pc><abbr>B</abbr><expan resp="#AM">Baptiste</expan><pc type="punto">.</pc>DUFFAUD</persName><pc type="punto">.</pc>
+                        </stamp></p>
+                        
+                        <p><stamp type="typography" facs="#stamp3">
+                            Salon de <placeName>Paris</placeName><pc type="punto">.</pc>
+                        </stamp></p>
+                       
+                        <p><stamp type="typography" facs="#stamp4">
+                            <gap reason="illegible" agent="faded"/>
+                        </stamp></p>
+                    </div>
+
+                    <div type="message">
+                        <opener>
+                            <dateline n="1" facs="#luogo">
+                                <placeName>S<pc type="punto">.</pc>Felice</placeName>
+                                <distinct>li</distinct>
+                                <date when="1918-04-08"><num>8</num><pc type="barra">/</pc><num>4</num><pc type="tratto">-</pc>1918</date><pc type="tratto">-</pc>
+                            </dateline>
+                        </opener>
+
+                        <p>
+                        
+                            <lb n="5"/><span facs="#testo1"><unclear reason="illegible" resp="#AM">Intenti gentili</unclear></span>
+                            <lb n="6"/><span facs="#testo2">verace e profondo affetto<pc type="punto">.</pc></span>
+                        </p>
+                        <closer>
+                            <signed>
+                                <lb n="7"/><span facs="#sal"><persName ref="#GC">tuo Giovannino</persName></span>
+                            </signed>
+                        </closer>
+                    </div>
+                </div>
+            </body>
+        </text>
+    </TEI>
+</teiCorpus>
