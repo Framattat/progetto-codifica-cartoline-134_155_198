@@ -5,7 +5,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Progetto Codifica di Testi 20/21 Cartoline ad Olivia Turtura </title>
+                <title>Progetto Codifica di Testi 21/22 Cartoline ad Olivia Turtura </title>
                 <respStmt>
                     <resp>Trascrizione a cura di:</resp>
                     <name xml:id="LC">Lorenzo Cecio</name>
@@ -14,15 +14,14 @@
 
                 <respStmt>
                     <resp>Ente di Appartenenza</resp>
-                    <name type="comune" xml:id="SP">Comune della Spezia</name>
+                    <name type="comune" xml:id="CdS">Comune della Spezia</name>
                 </respStmt>  
 
             </titleStmt>
-
             <editionStmt>
                 <edition> 
                     Studenti del corso di Codifica di Testi, corso di laurea triennale di Informatica Umanistica, Università di Pisa 
-                    <date when="2021">2021</date>
+                    <date when="2022" xml:id="a_22">2022</date>
                 </edition>
 
                 <respStmt>
@@ -48,16 +47,13 @@
                 </respStmt>
 
             </editionStmt>
-
             <publicationStmt>
                 <publisher xml:id="UdP">Università di Pisa</publisher>
                 <pubPlace xml:id="PI">Pisa</pubPlace>
-
                 <availability>
                     <p>Available under licence only</p>
                 </availability>
-
-                <date when="2018">2018</date>
+                <date ref="a_22"></date>
                 <distributor>LabCD</distributor>
 
                 <address>
@@ -66,26 +62,21 @@
                 </address>
 
             </publicationStmt>
-            
             <sourceDesc>
                 <msDesc>
 					<msIdentifier>
 						<country xml:id="IT">Italia</country>
 						<settlement xml:id="SP">La Spezia (SP)</settlement>
-
 						<repository xml:id="MCE">
 						Museo Civico Etnografico "Giovanni Podenzana", Sezione dei cimeli garibaldini e della Prima Guerra Mondiale
                         </repository>
-
 					</msIdentifier>
-
 					<msContents>
 						<summary >Cartolina Artistica</summary>
 						<textLang>Italiano</textLang>
 					</msContents>
-
 				</msDesc>
-				<listPerson>
+				<!-- <listPerson>
 
                     <person xml:id="GT">
                         <persName>
@@ -117,7 +108,7 @@
                         <district type="provincia"> RV </district>
                         <country  key="N"> IT </country>
                     </place>
-                </listPlace>   
+                </listPlace>    -->
             </sourceDesc>
         </fileDesc>
     </teiHeader>
@@ -165,7 +156,7 @@
                     <availability>
                         <p>Available under licence only</p>
                     </availability>
-                    <date when="2018">2018</date>
+                    <date ref="a_22">2022</date>
                     <distributor>LabCD</distributor>
                     <address>
                         <addrLine>Laboratorio di Cultura Digitale - Università di Pisa</addrLine>
@@ -274,7 +265,6 @@
                 </langUsage>
             </profileDesc>
         </teiHeader>
-
         <facsimile>
             <!-- Fronte -->
             <surface  type="fronte" xml:id="F174">
@@ -313,7 +303,6 @@
 
             </surface>
         </facsimile>
-
         <!-- DEFINIZIONE -->
         <text type="cartolina" xml:id="cartolina174">
             <!-- TRASCRIZIONE -->
@@ -434,4 +423,5 @@
             </body>
         </text>
     </TEI>
+
 </teiCorpus>
