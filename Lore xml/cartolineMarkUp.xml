@@ -51,10 +51,10 @@
                 <publisher xml:id="UdP">Università di Pisa</publisher>
                 <pubPlace xml:id="PI">Pisa</pubPlace>
                 <availability>
-                    <p>Available under licence only</p>
+                    <p xml:id="AULO">Available under licence only</p>
                 </availability>
                 <date ref="a_22"></date>
-                <distributor>LabCD</distributor>
+                <distributor xml:id="LabCD">Laboratorio Codifica Dati</distributor>
 
                 <address>
                     <addrLine>Laboratorio di Cultura Digitale - Università di Pisa</addrLine>
@@ -73,7 +73,7 @@
 					</msIdentifier>
 					<msContents>
 						<summary >Cartolina Artistica</summary>
-						<textLang>Italiano</textLang>
+						<textLang >Italiano</textLang>
 					</msContents>
 				</msDesc>
 				<!-- <listPerson>
@@ -123,7 +123,7 @@
 
                 <editionStmt>
                     <edition>Studenti del corso di Codifica di Testi, corso di laurea triennale di Informatica Umanistica, Università di Pisa 
-                    <date>2021</date>
+                    <date ref="a_22"></date>
                     </edition>
 
                     <respStmt>
@@ -151,13 +151,15 @@
                 </editionStmt>
 
                 <publicationStmt>
-                    <publisher>Unipi</publisher>
-                    <pubPlace>Pisa</pubPlace>
+                    <publisher ref="UdP"></publisher>
+                    <pubPlace ref="PI"></pubPlace>
                     <availability>
-                        <p>Available under licence only</p>
+                        <p>
+                            <ref target="AULO"></ref>
+                        </p>
                     </availability>
-                    <date ref="a_22">2022</date>
-                    <distributor>LabCD</distributor>
+                    <date ref="a_22"></date>
+                    <distributor ref="LabCD"></distributor>
                     <address>
                         <addrLine>Laboratorio di Cultura Digitale - Università di Pisa</addrLine>
                         <addrLine>Pisa</addrLine>
