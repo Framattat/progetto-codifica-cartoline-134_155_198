@@ -246,26 +246,26 @@
             
             <!-- Retro -->
             <surface xml:id="R134">
-                <graphic url='7694-134R.jpeg' width='1663px' height='1068px' />
+                <graphic url="img/7694-134R.jpeg" width='1663px' height='1068px' />
                 <!-- franco bollo e timbro -->
-                <zone ulx="1116" uly="5" lrx="1573" lry="360" />
+                <zone ulx="1116" uly="5" lrx="1573" lry="360" xml:id="134_timbro_franc"/>
                  <!-- numero cartolina -->
-                <zone ulx="869" uly="106" lrx="1018" lry="202" />
+                <zone ulx="869" uly="106" lrx="1018" lry="202" xml:id="134_nc" />
                 <!-- scritta alfieri milano verticale -->
-                <zone ulx="41" uly="313" lrx="86" lry="705" />
+                <zone ulx="41" uly="313" lrx="86" lry="705" xml:id="134_nota1"/>
                  <!-- proprietà artistica riservata -->
-                <zone ulx="90" uly="924" lrx="482" lry="973" />
+                <zone ulx="90" uly="924" lrx="482" lry="973" xml:id="134_nota2"/>
                  <!-- logo dsn -->
-                <zone ulx="677" uly="813" lrx="866" lry="1008" />
+                <zone ulx="677" uly="813" lrx="866" lry="1008" xml:id="134_logo"/>
                 <!-- parte destra cartolina -->
-                <zone ulx="797" uly="271" lrx="1654" lry="1037" />
+                <zone ulx="797" uly="271" lrx="1654" lry="1037" xml:id="134_indiriz" />
                 <!-- parte sinistra cartolina -->
-                <zone ulx="83" uly="43" lrx="769" lry="973" />
+                <zone ulx="83" uly="43" lrx="769" lry="973" xml:id="134_msg"/>
             </surface>
         </facsimile>
 
         <!-- DEFINIZIONE -->
-        <text type="cartolina" xml:id="cartolina174">
+        <text type="cartolina" xml:id="cartolina134">
             <!-- TRASCRIZIONE -->
             <body>
                 <div type="fronte" facs="#F134">
@@ -278,135 +278,21 @@
                     </figure>
                 </div>
 
-                <div type="retro" facs="#R174">
-                    <div type="codice">
-                        <p>
-                            <num type="cardinal">
-                                <idno facs="#cod">174</idno>
-                            </num>
-                        </p>
-                    </div>
-                    <div type="destination">
-                        <p>
-                            <!-- Timbro -->
-                            <stamp type="postmark" facs="#timbro">
-                                <mentioned rend="circle"><unclear reason="faded" resp="#AM">MODENA FERROVIA</unclear>
-                                </mentioned>
-                                <date when="1918-06-09">-9<unclear reason="faded">.6.</unclear>18</date>
-                            </stamp>
-                            <!-- Francobollo -->
-                            <stamp type="postage" facs="#timbro">Francobollo da 5 centesimi del Regno d'Italia</stamp>
-                        </p>
-                        <!-- Indirizzo -->
-                        <p style="indirizzo">
-                            <address>
-                                <addrLine facs="#ind1"> 
-                                    <lb n="1"/>
-                                    <choice> 
-                                        <abbr> <hi rend="decorated">G</hi>ent<am>.</am></abbr> 
-                                        <expan> Gent <ex> ilissima </ex> </expan>
-                                    </choice>
-                                    <choice>
-                                        <abbr> <hi rend="decorated">S</hi>ig<am>.</am>na </abbr> 
-                                        <expan> Sig<ex>nori</ex>na </expan>
-                                    </choice>
-                                </addrLine>
-                                <addrLine facs="#ind2"> 
-                                    <lb n="2"/>
-                                    <persName  ref="#OT"> 
-                                        <name type="person"><hi rend="decorated">O</hi>liva</name>
-                                        <space/>
-                                        <surname><hi rend="decorated">T</hi>urtura </surname>
-                                    </persName> 
-                                </addrLine>
-                                <addrLine facs="#ind3"> 
-                                    <lb n="3"/>
-                                    <hi rend="decorated">V</hi>ia 
-                                    <hi rend="decorated">G</hi>irolamo 
-                                    <hi rend="decorated">R</hi>ossi 
-                                    <num type="cardinal">58</num> 
-                                </addrLine>
-                                <addrLine facs="#ind4"> 
-                                    <placeName ref="#RA"> 
-                                        <lb n="4" /><district type="comune"><hi rend="decorated">Ravenna</hi></district> 
-                                    </placeName> 
-                                </addrLine>
-                            </address>
-                            </p>
-                    </div>
-
-                    <div type="typography">
-                        <p><stamp type="typography" facs="#17410T">
-                            <hi rend="decorated">S</hi> 
-                            <hi rend="decorated">P</hi> 
-                            <hi rend="decorated">A</hi>
-                        </stamp></p>
-                        <p><stamp type="typography" facs="#stamp" xml:lang="fr">
-                            Pastorale en<placeName>Provence</placeName><pc type="punto">.</pc>
-                        </stamp></p>
-                        <p><stamp type="typography" facs="#stamp1">
-                            Pastorale in <placeName>Provence</placeName><pc type="punto">.</pc>
-                        </stamp></p>
-                        <p><stamp type="typography" facs="#stamp2">
-                        	<num>645</num><pc type="punto">.</pc><persName><abbr>J</abbr><expan resp="#AM">Jean</expan><pc type="punto">.</pc><abbr>B</abbr><expan resp="#AM">Baptiste</expan><pc type="punto">.</pc>DUFFAUD</persName><pc type="punto">.</pc>
-                        </stamp></p>
-                        
-                        <p><stamp type="typography" facs="#stamp3">
-                            Salon de <placeName>Paris</placeName><pc type="punto">.</pc>
-                        </stamp></p>
-                       
-                        <p><stamp type="typography" facs="#stamp4">
-                            <gap reason="illegible" agent="faded"/>
-                        </stamp></p>
-                    </div>
-
-                    <div type="message">
-                        <opener>
-                            <dateline n="1" facs="#luogo">
-                                <placeName>S<pc type="punto">.</pc>Felice</placeName>
-                                <distinct>li</distinct>
-                                <date when="1918-04-08"><num>8</num><pc type="barra">/</pc><num>4</num><pc type="tratto">-</pc>1918</date><pc type="tratto">-</pc>
-                            </dateline>
-                        </opener>
-
-                        <p>
-                        
-                            <lb n="5"/><span facs="#testo1"><unclear reason="illegible" resp="#AM">Intenti gentili</unclear></span>
-                            <lb n="6"/><span facs="#testo2">verace e profondo affetto<pc type="punto">.</pc></span>
-                        </p>
-                        <closer>
-                            <signed>
-                                <lb n="7"/><span facs="#sal"><persName ref="#GC">tuo Giovannino</persName></span>
-                            </signed>
-                        </closer>
-                    </div>
-                </div>
-            </body>
-            <body>
-                <div type="fronte" facs="#F198">
-                    <figure>
-                        <graphic url="7694-134R.jpeg"/>
-                        <figDesc> Paesaggio in cui sono presenti alberi con foglie arancioni, pecore mentre pascolano e abitazioni in lontananza </figDesc>
-                        <head>Melrose Abbay</head>
-                    </figure>
-                </div>
-                <div type="retro" facs="#R198">
-                	<p><idno type="n_cartolina" facs="#198_nc">198</idno></p>
-                    <div type="message" facs="#198_msg">
+                <div type="retro" facs="#R134">
+                    <fw type="n_cartolina" place="top-right" facs="#134_nc">134</fw>
+                    <div type="message" facs="#134_msg">
                         <!-- messaggio del mittente, introduzione/saluto -->
                         <opener>
-                            <placeName ref="MO">
-                                <unclear reason="eccentric_ductus">
-                                    <seg>Mo</seg><gap reason="eccentric_ductus"/><seg>na</seg>
-                                </unclear>
-                            </placeName>
+                            <placeName ref="MO"><hi rend="decorated">M</hi>odena </placeName>
+                            <pc type="comma">,</pc>
                             <w>lì<pc type="dot">.</pc></w>
-                            <date when="1918-02-13">
-                                13
+                            <date when="1917-07-06">
+                                6
                                 <pc type="slash">/</pc>
-                                2
-                                <pc type="dot">.</pc>
-                                18
+                                7
+                                <pc type="hyphen">-</pc>
+                                17
+                                <pc type="hyphen">-</pc>
                             </date>
                         </opener>
                         <!-- corpo del messaggio -->
@@ -425,34 +311,38 @@
                     </div>
                     <div type="destination">
                         <!-- francobollo e timbro -->
-                        <p>
-                            <stamp type="postmark" facs="#198_timbro"> 
-                                Moden <supplied reason="omitted-in-original"> a </supplied>
-                                
+                        <p facs="#134_timbro_franc">
+                            <stamp type="postmark" >
+                                <unclear reason="faded">
+                                    <supplied reason="faded">M</supplied>o<supplied reason="faded">d</supplied>ena
+                                </unclear>
                                 <date> 
-                                    <unclear reason="faded"> 13-21-8 <gap reason="illegible"/></unclear> 
+                                    <unclear reason="faded"><gap reason="faded"/>817<gap reason="illegible"/></unclear> 
                                 </date>
-                                Ferr <supplied reason="omitted-in-original"> ovia </supplied>
+                                 <unclear reason="faded">
+                                    <supplied reason="faded">F</supplied>errovi<supplied reason="faded">a</supplied>
+                                </unclear>
                                 <note>
-                                    Il timbro risulta decentrato rispetto la cartolina, mancano quindi delle lettere e numeri. Si presuppone che il timbro riporti: "modena e la dicitura "ferrovia".
+                                    Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso. 
                                 </note>
                             </stamp>
-                            <stamp type="postage" facs="#198_francob">
+                            <stamp type="postage">
                                 Francobollo da 5 centesimi del Regno d'Italia
+                                <note>
+                                    Il francobollo non risulta correttamente posizionato sulla cartolina, è in posizione orizzontale.
+                                </note>
                             </stamp>
                         </p>
                         <!-- Indirizzo -->
                         <p>
-                            <address facs="#198_indiriz">
+                            <address facs="#134_indiriz">
                                 <addrLine> 
                                     <choice> 
                                         <abbr><hi rend="decorated">G</hi>ent</abbr> 
                                         <expan>Gentilissima</expan>
                                     </choice>
                                     <choice>
-                                        <abbr><hi rend="decorated">S</hi>ig <damaged agent="ink" facs="#198_macchia"><gap reason="damaged"/></damaged>
-                                            <add place="above">na</add>
-                                        </abbr> 
+                                        <abbr><hi rend="decorated">S</hi>ig --</abbr> 
                                         <expan>Signorina</expan>
                                     </choice>
                                 </addrLine>
@@ -482,14 +372,9 @@
                             </address>
                         </p>
                     </div>
-                    <fw type="sig" place="left" facs="198_nota1" >Raphael Tuck &amp; Sons' "OILETTE" Postcard no 7015 ART PUBLISHER TO THEIR MAJESTIES THE KING &amp; QUEEN.</fw>
-                    <fw type="front_desc" place="top-left" facs="198_nota2">
-                        <note>Un box in cui troviamo la descrizione dell'immagine frontale della cartolina, descrive una zona della Scozia chiamata "Melrose Abbay"</note>
-                    </fw>
-                    <fw type="address_zone" place="center" facs="198_nota3">For addresses only</fw>
-                    <fw type="header" place="top" facs="#198_header">Tuck's Post Card</fw>
-                    <fw type="sig" place="top-left" facs="#198_logo">Logo della corona inglese</fw>
-                    <fw type="footer" place="bottom-left" facs="#198_printed">Printed in england</fw>
+                    <fw type="sig" place="left" facs="134_nota1" >Alfieri e Lacroix, ING. IMP. - Milano</fw>
+                    <fw type="sig" place="bottom" facs="#134_logo">Logo DSN 6000-1</fw>
+                    <fw type="footer" place="bottom-left" facs="#134_nota2">Proprietà artistica riservata</fw>
                 </div>
             </body>
         </text>
@@ -629,7 +514,7 @@
             <!-- Retro -->
 
             <surface xml:id="R198">
-                <graphic url='7694-198R.jpeg' width='820px' height='520px' />
+                <graphic url="img/7694-198R.jpeg" width='820px' height='520px' />
                 <!-- numero cartolina -->
                 <zone ulx="616" uly="10" lrx="667" lry="43" xml:id="198_nc"/>
                 <!-- scritta sinistra verticale -->
@@ -663,13 +548,13 @@
             <body>
                 <div type="fronte" facs="#F198">
                     <figure>
-                        <graphic url="img/198F.jpg"/>
+                        <graphic url="img/7694-198F.jpg"/>
                         <figDesc> Paesaggio in cui sono presenti alberi con foglie arancioni, pecore mentre pascolano e abitazioni in lontananza </figDesc>
                         <head>Melrose Abbay</head>
                     </figure>
                 </div>
                 <div type="retro" facs="#R198">
-                	<p><idno type="n_cartolina" facs="#198_nc">198</idno></p>
+                	<fw type="n_cartolina" place="top-right" facs="#198_nc">198</fw>
                     <div type="message" facs="#198_msg">
                         <!-- messaggio del mittente, introduzione/saluto -->
                         <opener>
