@@ -2,116 +2,7 @@
 <!DOCTYPE teiCorpus SYSTEM "tei_all.dtd">
 
 <teiCorpus xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
-    <fileDesc>
-      <titleStmt>
-        <title>Progetto Codifica di Testi 21/22 Cartoline ad Olivia Turtura </title>
-        <respStmt>
-          <resp>Trascrizione a cura di:</resp>
-          <name xml:id="LC">Lorenzo Cecio</name>
-          <name xml:id="AB">Alessandro Belli</name>
-        </respStmt>
-
-        <respStmt>
-          <resp>Ente di Appartenenza</resp>
-          <name type="comune" xml:id="CdS">Comune della Spezia</name>
-        </respStmt>
-
-      </titleStmt>
-      <editionStmt>
-        <edition>
-          Studenti del corso di Codifica di Testi, corso di laurea triennale di Informatica Umanistica, Università di Pisa
-          <date when="2022" xml:id="a_22">2022</date>
-        </edition>
-
-        <respStmt>
-          <resp>Codificato da:</resp>
-          <name ref="#LC"></name>
-          <name ref="#AB"></name>
-        </respStmt>
-
-        <respStmt>
-          <resp>Compilatore:</resp>
-          <name xml:id="TC">Tommaso Castagneto</name>
-        </respStmt>
-
-        <respStmt>
-          <resp>Responsabile scientifico:</resp>
-          <name xml:id="GP">Giacomo Paolicchi</name>
-          <name xml:id="ES">Enrica Salvatori</name>
-        </respStmt>
-
-        <respStmt>
-          <resp>Funzionario responsabile:</resp>
-          <name xml:id="MR">Marzia Ratti</name>
-        </respStmt>
-
-      </editionStmt>
-      <publicationStmt>
-        <publisher xml:id="UdP">Università di Pisa</publisher>
-        <pubPlace xml:id="PI">Pisa</pubPlace>
-        <availability>
-          <p xml:id="AULO">Available under licence only</p>
-        </availability>
-        <date ref="a_22"></date>
-        <distributor xml:id="LabCD">Laboratorio Codifica Dati</distributor>
-
-        <address>
-          <addrLine>Laboratorio di Cultura Digitale - Università di Pisa</addrLine>
-          <addrLine ref="PI"></addrLine>
-        </address>
-
-      </publicationStmt>
-      <sourceDesc>
-        <msDesc>
-          <msIdentifier>
-            <country xml:id="IT">Italia</country>
-            <settlement xml:id="SP">La Spezia (SP)</settlement>
-            <repository xml:id="MCE">
-              Museo Civico Etnografico "Giovanni Podenzana", Sezione dei cimeli garibaldini e della Prima Guerra Mondiale
-            </repository>
-          </msIdentifier>
-          <msContents>
-            <summary >Cartolina Artistica</summary>
-            <textLang >Italiano</textLang>
-          </msContents>
-        </msDesc>
-        <listPerson>
-          <person xml:id="GC">
-            <persName>
-              <forename>Giovanni</forename>
-              <surname>Coliola </surname>
-            </persName>
-            <sex>M</sex>
-          </person>
-          <person xml:id="OT">
-            <persName>
-              <forename>Oliva</forename>
-              <surname>Turtura</surname>
-            </persName>
-            <sex>F</sex>
-          </person>
-        </listPerson>
-        <listPlace>
-          <place xml:id="MO">
-            <placeName>Luogo del mittente: Modena </placeName>
-            <district  type="comune"> Modena </district>
-            <district type="provincia"> MO </district>
-            <district type="regione">Emilia Romagna</district>
-            <country  key="N"> IT </country>
-          </place>
-          <place xml:id="RA">
-            <placeName> Luogo del destinatario: Ravenna </placeName>
-            <district  type="comune"> Ravenna </district>
-            <district type="provincia"> RV </district>
-            <district type="regione">Emilia Romagna</district>
-            <country  key="N"> IT </country>
-          </place>
-        </listPlace>
-      </sourceDesc>
-    </fileDesc>
-  </teiHeader>
-
+ 
   <!-- CARTOLINA n° 134 -->
   <TEI>
     <teiHeader>
@@ -539,20 +430,20 @@
       <surface xml:id="R155">
         <graphic url="img/7694-155R.jpeg" width='1646px' height='1054px' />
         <!-- Codice Catalogo -->
-        <zone xml:id="#155_nc" ulx="976" uly="64" lrx="1118" lry="176"/>
+        <zone ulx="976" uly="64" lrx="1118" lry="176" xml:id="#155_nc"/>
         <!-- Francobollo e timbro-->
-        <zone xml:id="#155_timbro_franc" ulx="1193" uly="4" lrx="1576" lry="338" />
+        <zone ulx="1193" uly="4" lrx="1576" lry="338" xml:id="#155_timbro_franc"/>
         <!-- Indirizzo e destinatario-->
-        <zone xml:id="#155_indiriz" ulx="788" uly="319" lrx="1636" lry="1002"/>
+        <zone ulx="788" uly="319" lrx="1636" lry="1002" xml:id="#155_indiriz"/>
         <!-- Messaggio -->
-        <zone xml:id="#155_msg" ulx="57" uly="74" lrx="765" lry="1010"/>
+        <zone ulx="57" uly="74" lrx="765" lry="1010" xml:id="#155_msg" />
         <!-- Tipografia -->
         <!-- Logo -->
-        <zone xml:id="#155_logo" ulx="740" uly="927" lrx="809" lry="973"/>
+        <zone ulx="740" uly="927" lrx="809" lry="973" xml:id="#155_logo"/>
         <!-- Revisione -->
-        <zone xml:id="#155_nota2" ulx="153" uly="1003" lrx="617" lry="1023" />
+        <zone ulx="153" uly="1003" lrx="617" lry="1023" xml:id="#155_nota2" />
         <!-- Proprietà artistica-->
-        <zone xml:id="#155_nota1" ulx="27" uly="271" lrx="56" lry="813" />
+        <zone ulx="27" uly="271" lrx="56" lry="813" xml:id="#155_nota1"/>
       </surface>
     </facsimile>
 
@@ -598,7 +489,7 @@
               <salute>
                 <unclear reason="eccentric_ductus">
                   <seg>
-                    <hi rend="decorated">A</hi>ffetuosissimamente
+                    <hi rend="decorated">A</hi>ffetuosi
                   </seg>
                   <gap reason="eccentric_ductus"/>
                 </unclear>
@@ -618,15 +509,15 @@
               <stamp type="postmark" >
                 <!-- nell'immagine il timbro è tagliato nella parte superiore -->
                 <unclear reason="illegible">
-                  <supplied reason="faded">M</supplied>o<supplied reason="illegible">dena</supplied>
+                  Mod<supplied reason="illegible">ena</supplied>
                 </unclear>
                 <date>
                   <unclear reason="faded">
-                    <supplied reason="faded">30817</supplied><supplied reason="illegible">15</supplied>
+                    <seg>30817</seg><gap reason="faded"/>
                   </unclear>
                 </date>
                 <unclear reason="faded">
-                  <supplied reason="faded">Ferro</supplied><supplied reason="illegible">via</supplied>
+                  <seg>Ferro</seg><supplied reason="illegible">via</supplied>
                 </unclear>
                 <note>
                   Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso.
@@ -648,7 +539,7 @@
                   </choice>
                   <choice>
                     <abbr>
-                      <hi rend="decorated">S</hi>ig --
+                      <hi rend="decorated">S</hi>ig - a
                     </abbr>
                     <expan>Signorina</expan>
                   </choice>
@@ -684,8 +575,8 @@
             </p>
           </div>
           <fw type="sig" place="left" facs="#155_nota1" >Proprietà Artistica riservata - И 2053-4</fw>
-          <fw type="sig" place="bottom-center" facs="#155_logo">CCM</fw>
-          <fw type="footer" place="bottom-left" facs="#155_nota2">Visto Revisione Stampa - N. 1404 - Milano.</fw>
+          <fw type="sig" place="bottom-center" facs="#155_logo">C•C•M</fw>
+          <fw type="footer" place="bottom-left" facs="#155_nota2">Visto Revisio<unclear reason="illegible" agent="ink">n</unclear>e Stampa - N. 1404 - <unclear reason="illegible" agent="ink">M</unclear>ilano.</fw>
         </div>
       </body>
     </text>
