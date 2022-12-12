@@ -177,7 +177,8 @@
                     <bibl>
                         <!-- TITOLO -->
                         <title>Fieno ricchezza</title>
-                        <pubPlace>Milano</pubPlace>
+                        <publisher xml:id="AEL">Alfieri e Lacroix</publisher>
+                        <pubPlace xml:id="MI">Milano</pubPlace>
                         <date>1917</date>
                     </bibl>
                     <msDesc>
@@ -441,7 +442,7 @@
                     <bibl>
                         <!-- TITOLO -->
                         <title>Donna con lettera e amorino</title>
-                        <pubPlace>Milano</pubPlace>
+                        <pubPlace ref="#MI">Milano</pubPlace>
                         <date>1917</date>
                     </bibl>
                     <msDesc>
@@ -731,6 +732,8 @@
                         <!-- TITOLO -->
                         <title>Melrose Abbay</title>
                         <date>1918</date>
+                        <publisher xml:id="RTS">Raphael Tuck &amp; Sons'</publisher>
+                        <pubPlace xml:id="ENG">Inghilterra</pubPlace>
                     </bibl>
                     <msDesc>
                         <msIdentifier>
