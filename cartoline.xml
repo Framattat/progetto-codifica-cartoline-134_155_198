@@ -305,7 +305,7 @@
                         <closer>
                             <salute>
                                 <unclear reason="eccentric_ductus">
-                                    <seg><hi rend="decorated">A</hi>ffetuosi</seg><gap reason="eccentric_ductus"/>
+                                    <hi rend="decorated">A</hi>ffetuosi<gap reason="eccentric_ductus"/>
                                 </unclear>
                             </salute>
                             <signed>
@@ -317,14 +317,17 @@
                         <!-- francobollo e timbro -->
                         <p>
                             <stamp type="postmark" facs="#r134_timbro" >
-                                <unclear reason="faded">
-                                    <supplied reason="faded">M</supplied>o<supplied reason="faded">d</supplied>ena
-                                </unclear>
+                                    <unclear reason="faded">
+                                       <gap reason="faded"/><seg>o</seg><gap reason="faded"/><seg>ena</seg>
+                                    </unclear>
                                 <date> 
-                                    <unclear reason="faded"><gap reason="faded"/>817<gap reason="illegible"/></unclear> 
+                                    <unclear reason="faded">
+                                        <gap reason="faded"/>817<gap reason="illegible"/>
+                                    </unclear> 
                                 </date>
+                                
                                  <unclear reason="faded">
-                                    <supplied reason="faded">F</supplied>errovi<supplied reason="faded">a</supplied>
+                                    <gap reason="faded"/><seg>errovi</seg><gap reason="faded"/>
                                 </unclear>
                                 <note>
                                     Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso. 
@@ -576,10 +579,7 @@
                         <closer>
                             <salute>
                                 <unclear reason="eccentric_ductus">
-                                    <seg>
-                                        <hi rend="decorated">A</hi>ffetuosi
-                                    </seg>
-                                    <gap reason="eccentric_ductus"/>
+                                    <hi rend="decorated">A</hi>ffetuosi<gap reason="eccentric_ductus"/>
                                 </unclear>
                             </salute>
                             <signed>
@@ -597,15 +597,15 @@
                             <stamp type="postmark" facs="#r155_timbro" >
                                 <!-- nell'immagine il timbro è tagliato nella parte superiore -->
                                 <unclear reason="illegible">
-                                    Mod<supplied reason="illegible">ena</supplied>
+                                    Mod<gap reason="illegible"/>
                                 </unclear>
                                 <date>
                                     <unclear reason="faded">
-                                        <seg>30817</seg><gap reason="faded"/>
+                                        30817<gap reason="faded"/>
                                     </unclear>
                                 </date>
                                 <unclear reason="faded">
-                                <seg>Ferro</seg><supplied reason="illegible">via</supplied>
+                                    Ferro<gap reason="illegible"/>
                                 </unclear>
                                 <note>
                                     Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso.
@@ -853,7 +853,7 @@
                         <opener>
                             <placeName ref="#MO">
                                 <unclear reason="eccentric_ductus">
-                                    <seg>Mo</seg><gap reason="eccentric_ductus"/><seg>na</seg>
+                                    Mo<gap reason="eccentric_ductus"/>na
                                 </unclear>
                             </placeName>
                             <w>lì<pc type="dot">.</pc></w>
@@ -871,7 +871,7 @@
                         <closer>
                             <salute>
                                 <unclear reason="eccentric_ductus">
-                                    <seg><hi rend="decorated">A</hi>ffetuosi</seg><gap reason="eccentric_ductus"/>
+                                    <hi rend="decorated">A</hi>ffetuosi<gap reason="eccentric_ductus"/>
                                 </unclear>
                             </salute>
                             <signed>
@@ -882,9 +882,10 @@
                     <div type="destination">
                         <!-- francobollo e timbro -->
                         <p>
-                            <stamp type="postmark" facs="#r198_timbro"> 
-                                Moden <supplied reason="omitted-in-original"> a </supplied>
-                                
+                            <stamp type="postmark" facs="#r198_timbro">
+                                <unclear reason="omitted-in-original">
+                                    Moden <gap reason="omitted-in-original"/>
+                                </unclear> 
                                 <date> 
                                     <unclear reason="faded"> 13-21-8 <gap reason="illegible"/></unclear> 
                                 </date>
