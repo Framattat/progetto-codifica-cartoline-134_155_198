@@ -352,42 +352,56 @@
 
     <!-- Template per i Timbro e francobolli -->
     <xsl:template match="tei:p/tei:stamp">
-        <xsl:choose>
-            <xsl:when test="count(tei:p/tei:stamp)=1">
-                
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:variable name="temp_id_stamp" select="@facs"/>
-                <xsl:variable name="final_id_stamp" select="substring-after($temp_id_stamp, '#')"/>
-                <div class="stamp">
-                    <xsl:attribute name="id">
-                        <xsl:value-of select="$final_id_stamp"/>
-                    </xsl:attribute>
-                    <xsl:choose>
-                        <xsl:when test="@type='postmark'">
-                            Timbro:
-                        </xsl:when>
-                        <xsl:when test="@type='postage'">
-                            Francobollo:
-                        </xsl:when>
-                    </xsl:choose>
-                    <xsl:value-of select="$space" disable-output-escaping="yes"/>
-                    <xsl:value-of select="text()"/>
-                    <xsl:apply-templates select="tei:damage"/>
-                    <xsl:if test="count(tei:date)>0">
-                        <xsl:apply-templates select="tei:date"/>
-                    </xsl:if>
-                    <xsl:if test="count(tei:note)>0">
-                        <br/>
-                        <p>
-                            Nota:
-                            <xsl:value-of select="$space" disable-output-escaping="yes"/>
-                            <xsl:apply-templates select="tei:note"/>
-                        </p>
-                    </xsl:if>
-                </div>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:variable name="temp_id_stamp" select="@facs"/>
+        <xsl:variable name="final_id_stamp" select="substring-after($temp_id_stamp, '#')"/>
+        <div class="stamp">
+            <xsl:attribute name="id">
+                <xsl:value-of select="$final_id_stamp"/>
+            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test="@type='postmark'">
+                    Timbro:
+                </xsl:when>
+                <xsl:when test="@type='postage'">
+                    Francobollo:
+                </xsl:when>
+            </xsl:choose>
+            <xsl:value-of select="$space" disable-output-escaping="yes"/>
+            <xsl:value-of select="text()"/>
+            <xsl:apply-templates select="tei:damage"/>
+            <xsl:if test="count(tei:date)>0">
+                <xsl:apply-templates select="tei:date"/>
+            </xsl:if>
+            <xsl:if test="count(tei:note)>0">
+                <br/>
+                <a>Nota:</a>
+                <xsl:value-of select="$space" disable-output-escaping="yes"/>
+                <xsl:apply-templates select="tei:note"/>
+            </xsl:if>
+            <span>
+                <xsl:choose>
+                    <xsl:when test="count(//tei:zone[@xml:id = $final_id_stamp]/@ulx)>0">
+                        <xsl:attribute name="data-ulx">
+                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@ulx"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-uly">
+                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@uly"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-lrx">
+                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@lrx"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-lry">
+                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@lry"/>
+                        </xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="data-points">
+                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@points"/>
+                        </xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </span>
+        </div>
         <br/>
     </xsl:template>
 
