@@ -78,28 +78,35 @@
     </xsl:template>
   
 	<!-- CARTOLINA -->
-    <!-- Template per le cartoline -->
-    <!--TODO Da capire -->
+    <!-- Template per le cartoline OK-->
     <xsl:template match="/tei:teiCorpus/tei:TEI">
         <xsl:apply-templates select="tei:teiHeader"/>
         <div class="radio_holder">
             <input type="radio">
                 <xsl:attribute name="type">radio</xsl:attribute>
-                <xsl:attribute name="id">r_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_f</xsl:attribute>
-                <xsl:attribute name="name"><xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_fronte_retro</xsl:attribute>
+                <xsl:attribute name="id">
+                    f_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>
+                </xsl:attribute>
+                <xsl:attribute name="name"><xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_fronte</xsl:attribute>
                 <xsl:attribute name="checked">checked</xsl:attribute>
             </input>
             <xsl:element name="label">
-                <xsl:attribute name="for">r_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_f</xsl:attribute>
+                <xsl:attribute name="for">
+                    f_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>
+                </xsl:attribute>
                 Fronte
             </xsl:element>
             <input type="radio">
                 <xsl:attribute name="type">radio</xsl:attribute>
-                <xsl:attribute name="id">r_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_r</xsl:attribute>
-                <xsl:attribute name="name"><xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_fronte_retro</xsl:attribute>
+                <xsl:attribute name="id">
+                    r_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>
+                </xsl:attribute>
+                <xsl:attribute name="name"><xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_retro</xsl:attribute>
             </input>
             <xsl:element name="label">
-                <xsl:attribute name="for">r_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>_r</xsl:attribute>
+                <xsl:attribute name="for">
+                    r_<xsl:value-of select="tei:facsimile/@xml:id"></xsl:value-of>
+                </xsl:attribute>
                 Retro
             </xsl:element>
         </div>
@@ -111,35 +118,45 @@
         </div>
     </xsl:template>
 
-    <!-- Template Header cartolina -->
+    <!-- Template Header cartolina OK -->
     <xsl:template match="tei:teiHeader">
         <div class="header_c">
             <h3>
                 Titolo: <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:title"/>
             </h3>
-            <xsl:if test="count(tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher)>0">
-                <p>
-                    Pubblicato da: <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/>
-                    <xsl:if test="count(tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace)>0">
-                        nel luogo: <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace"/>
-                    </xsl:if>
-                </p>
-            </xsl:if>
+            <xsl:choose> 
+                    <xsl:when test="count(tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher)>0">
+                        <p>Pubblicato da: <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/> </p>
+                </xsl:when>
+                <xsl:otherwise>
+                       <p>Non si conosce il publisher.</p> 
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:choose> 
+                <xsl:when test="count(tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace)>0">
+                    <p>Luogo di pubblicazione: <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace"/> </p>
+                </xsl:when>
+                <xsl:otherwise>
+                    <p> Non si conosce il luogo di pubblicazione. </p>
+                </xsl:otherwise>
+            </xsl:choose>
         </div>
     </xsl:template>
 
-    <!-- Template facsimile cartolina-->
+    <!-- Template facsimile cartolina OK-->
     <xsl:template match="tei:facsimile">
         <div class="img_c">
             <xsl:apply-templates select="tei:surface"/>
         </div>
     </xsl:template>
 
-    <!-- Template connesso al facsimile, serve ad estrarre le immagini e dati associati ad esse -->
-    <!-- TODO da capire -->
+    <!-- Template connesso al facsimile, serve ad estrarre le immagini e dati associati ad esse OK -->
     <xsl:template match="tei:surface">
         <xsl:element name="img">
             <xsl:attribute name="src">
+                <xsl:value-of select="tei:graphic/@url"/>
+            </xsl:attribute>
+            <xsl:attribute name="alt">
                 <xsl:value-of select="tei:graphic/@url"/>
             </xsl:attribute>
             <xsl:if test="position() = 1">
@@ -149,24 +166,20 @@
                 <xsl:value-of select="@xml:id"/>
             </xsl:attribute>
         </xsl:element>
-        <canvas>
-            <xsl:attribute name="id">can_<xsl:value-of select="@xml:id"/>
-            </xsl:attribute>
-        </canvas>
     </xsl:template>
 
     <!-- Template text cartolina -->
     <xsl:template match="tei:text">
-        <div class="info_c">
-            <xsl:variable name="temp_id_info_fronte" select="tei:body/tei:div[1]/@facs"/>
-            <xsl:variable name="final_id_info_fronte" select="substring-after($temp_id_info_fronte, '#')"/>
-            <div class="info_r_f visible">
-                <xsl:attribute name="id">i_<xsl:value-of select="$final_id_info_fronte"/>
+        <div class="text_c">
+            <xsl:variable name="id_text_f" select="tei:body/tei:div[@type='fronte']/@facs"/>
+            <div class="text_fronte visible">
+                <xsl:attribute name="id">
+                    <xsl:value-of select="$id_text_f"/>
                 </xsl:attribute>
-                <div class="f_desc">
-                    <a class="bold">Descrizione:</a>
-                    <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:figDesc"/>
-                    <br/>
+                <div class="desc_fronte">
+                    <p>
+                        Descrizione: <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:figDesc"/>
+                    </p>
                     <br/>
                     <xsl:if test="count(tei:body/tei:div[1]/tei:figure/tei:head/tei:persName)>0">
                         <xsl:variable name="temp_id" select="tei:body/tei:div[1]/tei:figure/tei:head/tei:persName/@facs"/>
@@ -212,10 +225,10 @@
             </div>
             <xsl:variable name="temp_id_info_retro" select="tei:body/tei:div[2]/@facs"/>
             <xsl:variable name="final_id_info_retro" select="substring-after($temp_id_info_retro, '#')"/>
-            <div class="info_r_f">
+            <div class="text_retro">
                 <xsl:attribute name="id">i_<xsl:value-of select="$final_id_info_retro"/>
                 </xsl:attribute>
-                <div class="r_desc">
+                <div class="desc_retro">
                     <div>
                         <xsl:apply-templates select="tei:body/tei:div[2]/tei:fw[1]"/>
                     </div>
@@ -226,7 +239,7 @@
     </xsl:template>
 
     <!-- Template message cartolina -->
-    <xsl:template match="tei:body/tei:div[2]/tei:div[@type='message']">
+    <xsl:template match="tei:body/tei:div[@type='retro']/tei:div[@type='message']">
         <xsl:variable name="temp_id" select="current()/@facs"/>
         <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
         <div class="stamp">
@@ -279,12 +292,12 @@
         </div>
     </xsl:template>
     <!-- Template destination cartolina -->
-    <xsl:template match="tei:body/tei:div[2]/tei:div[@type='destination']">
+    <xsl:template match="tei:body/tei:div[@type='retro']/tei:div[@type='destination']">
         <div class="destination_div">
             <p>
                 <strong>Indirizzo:</strong>
                 <br/>
-                <xsl:apply-templates select="tei:p[last()]/tei:address/tei:addrLine"/>
+                <xsl:apply-templates select="tei:p[2]/tei:address/tei:addrLine"/>
              </p>
         </div>
         <xsl:if test="count(tei:p/tei:stamp)>0">
@@ -664,7 +677,7 @@
     </xsl:template>
 
     <xsl:template match="tei:gap">
-        [...]
+        [illeggibile]
     </xsl:template>
 
     <!-- FOOTER SITO -->
