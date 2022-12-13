@@ -168,7 +168,7 @@
         </xsl:element>
     </xsl:template>
 
-    <!-- Template text cartolina -->
+    <!-- Template text cartolina OK-->
     <xsl:template match="tei:text">
         <div class="text_c">
             <xsl:variable name="id_text_f" select="tei:body/tei:div[@type='fronte']/@facs"/>
@@ -182,37 +182,16 @@
                     </p>
                     <br/>
                     <xsl:if test="count(tei:body/tei:div[1]/tei:figure/tei:head/tei:persName)>0">
-                        <xsl:variable name="temp_id" select="tei:body/tei:div[1]/tei:figure/tei:head/tei:persName/@facs"/>
-                        <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
+                        <xsl:variable name="id_temp" select="tei:body/tei:div[1]/tei:figure/tei:head/tei:persName/@facs"/>
+                        <xsl:variable name="id_firma" select="substring-after($id_temp, '#')"/>
                         <div class="stamp">
-                            <xsl:attribute name="id">
-                                <xsl:value-of select="$final_id"/>
-                            </xsl:attribute>
-                            <span>
-                                <xsl:choose>
-                                    <xsl:when test="count(//tei:zone[@xml:id = $final_id]/@ulx)>0">
-                                        <xsl:attribute name="data-ulx">
-                                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@ulx"/>
-                                        </xsl:attribute>
-                                        <xsl:attribute name="data-uly">
-                                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@uly"/>
-                                        </xsl:attribute>
-                                        <xsl:attribute name="data-lrx">
-                                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lrx"/>
-                                        </xsl:attribute>
-                                        <xsl:attribute name="data-lry">
-                                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lry"/>
-                                        </xsl:attribute>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:attribute name="data-points">
-                                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@points"/>
-                                        </xsl:attribute>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </span>
-                            <a class="bold">Autore: </a>
-                            <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:head/tei:persName"/>
+                          <xsl:attribute name="id">
+                            <xsl:value-of select="$id_firma"/>
+                          </xsl:attribute>
+                            <p>
+                              <strong>Autore:</strong>
+                              <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:head/tei:persName"/>
+                            </p>
                         </div>
                     </xsl:if>
                     <xsl:if test="(count(tei:body/tei:div[1]/tei:figure/tei:note)>0) or (count(tei:body/tei:div[1]/tei:figure/tei:fw)>0)">
@@ -223,22 +202,22 @@
                     </xsl:if>
                 </div>
             </div>
-            <xsl:variable name="temp_id_info_retro" select="tei:body/tei:div[2]/@facs"/>
-            <xsl:variable name="final_id_info_retro" select="substring-after($temp_id_info_retro, '#')"/>
-            <div class="text_retro">
-                <xsl:attribute name="id">i_<xsl:value-of select="$final_id_info_retro"/>
-                </xsl:attribute>
-                <div class="desc_retro">
-                    <div>
-                        <xsl:apply-templates select="tei:body/tei:div[2]/tei:fw[1]"/>
-                    </div>
-                    <xsl:apply-templates select="tei:body/tei:div[2]/tei:div"/>
-                </div>
+          <xsl:variable name="id_text_r" select="tei:body/tei:div[@type='retro']/@facs"/>
+          <div class="text_retro">
+            <xsl:attribute name="id">
+              <xsl:value-of select="$id_text_r"/>
+            </xsl:attribute>
+            <div class="desc_retro">
+              <div>
+                <xsl:apply-templates select="tei:body/tei:div[2]/tei:fw[1]"/>
+              </div>
+              <xsl:apply-templates select="tei:body/tei:div[2]/tei:div"/>
             </div>
+          </div>
         </div>
     </xsl:template>
 
-    <!-- Template message cartolina -->
+    <!-- Template message cartolina OK-->
     <xsl:template match="tei:body/tei:div[@type='retro']/tei:div[@type='message']">
         <xsl:variable name="temp_id" select="current()/@facs"/>
         <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
@@ -246,31 +225,10 @@
             <xsl:attribute name="id">
                 <xsl:value-of select="$final_id"/>
             </xsl:attribute>
-            <span>
-                <xsl:choose>
-                    <xsl:when test="count(//tei:zone[@xml:id = $final_id]/@ulx)>0">
-                        <xsl:attribute name="data-ulx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@ulx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-uly">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@uly"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lrx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lrx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lry">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lry"/>
-                        </xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="data-points">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@points"/>
-                        </xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </span>
             <xsl:apply-templates select="tei:opener/tei:dateline"/>
-            <xsl:choose>
+            <xsl:apply-templates select="tei:closer"/>
+          <!--  
+          <xsl:choose>
                 <xsl:when test="count(tei:closer/tei:dateline)>0">
                     <div class="text_div">
                         <a class="bold">Testo: </a>
@@ -289,27 +247,26 @@
                     </div>
                 </xsl:otherwise>
             </xsl:choose>
+            -->
         </div>
     </xsl:template>
-    <!-- Template destination cartolina -->
+    <!-- Template destination cartolina OK-->
     <xsl:template match="tei:body/tei:div[@type='retro']/tei:div[@type='destination']">
-        <div class="destination_div">
-            <p>
-                <strong>Indirizzo:</strong>
-                <br/>
-                <xsl:apply-templates select="tei:p[2]/tei:address/tei:addrLine"/>
-             </p>
-        </div>
-        <xsl:if test="count(tei:p/tei:stamp)>0">
-            <div class="stamp_div">
-                <p>
-                    <strong>Timbri e Francobolli:</strong>
-                    <br/>
-                    <xsl:apply-templates select="tei:p/tei:stamp"/>
-                </p>
-            </div>
-        </xsl:if>
-        <xsl:if test="count(following-sibling::tei:fw)>0">
+      <div class="destination_div">
+        <p>
+          <strong>Indirizzo:</strong>
+          <br/>
+          <xsl:apply-templates select="tei:p[2]/tei:address/tei:addrLine"/>
+        </p>
+      </div>
+      <div class="stamp_div">
+        <p>
+          <strong>Timbri e Francobolli:</strong>
+          <br/>
+          <xsl:apply-templates select="tei:p/tei:stamp"/>
+        </p>
+      </div>
+        <xsl:if test="count(tei:body/tei:div[@type='retro']/tei:fw)>0">
             <div class="note_segni_div">
                 <p>
                     <strong>Note e altri segni: </strong>
@@ -590,29 +547,6 @@
             <xsl:attribute name="id">
                 <xsl:value-of select="$final_id"/>
             </xsl:attribute>
-            <span>
-                <xsl:choose>
-                    <xsl:when test="count(//tei:zone[@xml:id = $final_id]/@ulx)>0">
-                        <xsl:attribute name="data-ulx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@ulx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-uly">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@uly"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lrx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lrx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lry">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lry"/>
-                        </xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="data-points">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@points"/>
-                        </xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </span>
             <a class="titolo_note bold">Note: </a><br/>
             <xsl:value-of select="text()"/>
             <br/><br/>
