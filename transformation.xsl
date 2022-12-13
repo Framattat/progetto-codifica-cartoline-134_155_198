@@ -353,8 +353,8 @@
     <!-- Template per i Timbro e francobolli -->
     <xsl:template match="tei:p/tei:stamp">
         <xsl:choose>
-            <xsl:when test="count(tei:p/tei:stamp)==1">
-            <!-- un elemento stamp -->
+            <xsl:when test="count(tei:p/tei:stamp)=1">
+                
             </xsl:when>
             <xsl:otherwise>
                 <xsl:variable name="temp_id_stamp" select="@facs"/>
