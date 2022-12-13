@@ -350,7 +350,7 @@
 
     </xsl:template>
 
-    <!-- Template per i Timbro e francobolli -->
+    <!-- Template per i Timbro e francobolli OK-->
     <xsl:template match="tei:p/tei:stamp">
         <xsl:variable name="temp_id_stamp" select="@facs"/>
         <xsl:variable name="final_id_stamp" select="substring-after($temp_id_stamp, '#')"/>
@@ -368,7 +368,7 @@
             </xsl:choose>
             <xsl:value-of select="$space" disable-output-escaping="yes"/>
             <xsl:value-of select="text()"/>
-            <xsl:apply-templates select="tei:damage"/>
+            <xsl:apply-templates select="tei:unclear"/>
             <xsl:if test="count(tei:date)>0">
                 <xsl:apply-templates select="tei:date"/>
             </xsl:if>
@@ -378,29 +378,6 @@
                 <xsl:value-of select="$space" disable-output-escaping="yes"/>
                 <xsl:apply-templates select="tei:note"/>
             </xsl:if>
-            <span>
-                <xsl:choose>
-                    <xsl:when test="count(//tei:zone[@xml:id = $final_id_stamp]/@ulx)>0">
-                        <xsl:attribute name="data-ulx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@ulx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-uly">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@uly"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lrx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@lrx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lry">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@lry"/>
-                        </xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="data-points">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@points"/>
-                        </xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </span>
         </div>
         <br/>
     </xsl:template>
@@ -604,14 +581,11 @@
     </xsl:template>
 
     <xsl:template match="tei:date">
-        <xsl:value-of select="text()"/>
-        <xsl:apply-templates select="tei:gap"/>
-        <xsl:apply-templates select="tei:date"/>
-        <xsl:value-of select="following-sibling::text()"/>
+        <xsl:apply-templates select="tei:unclear/child::node()"/>
     </xsl:template>
 
     <xsl:template match="tei:gap">
-        [illeggibile]
+        [...]
     </xsl:template>
 
     <!-- FOOTER SITO -->
