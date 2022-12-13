@@ -249,8 +249,10 @@
             <!-- Retro -->
             <surface xml:id="R134">
                 <graphic url="img/7694-134R.jpeg" width='1663px' height='1068px' />
-                <!-- franco bollo e timbro -->
-                <zone ulx="1116" uly="5" lrx="1573" lry="360" xml:id="r134_timbro_franc"/>
+                <!-- francobollo -->
+                <zone ulx="1116" uly="5" lrx="1573" lry="360" xml:id="r134_francob"/>
+                <!--timbro-->
+                <zone ulx="1116" uly="5" lrx="1573" lry="360" xml:id="r134_timbro"/>
                  <!-- numero cartolina -->
                 <zone ulx="869" uly="106" lrx="1018" lry="202" xml:id="r134_nc" />
                 <!-- scritta alfieri milano verticale -->
@@ -313,8 +315,8 @@
                     </div>
                     <div type="destination">
                         <!-- francobollo e timbro -->
-                        <p facs="#r134_timbro_franc">
-                            <stamp type="postmark" >
+                        <p>
+                            <stamp type="postmark" facs="#r134_timbro" >
                                 <unclear reason="faded">
                                     <supplied reason="faded">M</supplied>o<supplied reason="faded">d</supplied>ena
                                 </unclear>
@@ -328,7 +330,7 @@
                                     Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso. 
                                 </note>
                             </stamp>
-                            <stamp type="postage">
+                            <stamp type="postage" facs="#r134_francob">
                                 Francobollo da 5 centesimi del Regno d'Italia
                                 <note>
                                     Il francobollo non risulta correttamente posizionato sulla cartolina, è in posizione orizzontale.
@@ -515,8 +517,10 @@
                 <graphic url="img/7694-155R.jpeg" width='1646px' height='1054px' />
                 <!-- Codice Catalogo -->
                 <zone ulx="976" uly="64" lrx="1118" lry="176" xml:id="r155_nc"/>
-                <!-- Francobollo e timbro-->
-                <zone ulx="1193" uly="4" lrx="1576" lry="338" xml:id="r155_timbro_franc"/>
+                <!-- timbro-->
+                <zone ulx="1186" uly="0" lrx="1555" lry="252" xml:id="r155_timbro"/>
+                <!--Francobollo-->
+                <zone ulx="1275" uly="54" lrx="1516" lry="329" xml:id="r155_francob"/>
                 <!-- Indirizzo e destinatario-->
                 <zone ulx="788" uly="319" lrx="1636" lry="1002" xml:id="r155_indiriz"/>
                 <!-- Messaggio -->
@@ -589,8 +593,8 @@
                     </div>
                     <div type="destination">
                         <!-- francobollo e timbro -->
-                        <p facs="#r155_timbro_franc">
-                            <stamp type="postmark" >
+                        <p>
+                            <stamp type="postmark" facs="#r155_timbro" >
                                 <!-- nell'immagine il timbro è tagliato nella parte superiore -->
                                 <unclear reason="illegible">
                                     Mod<supplied reason="illegible">ena</supplied>
@@ -607,7 +611,7 @@
                                     Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso.
                                 </note>
                             </stamp>
-                            <stamp type="postage">
+                            <stamp type="postage" facs="#r155_francob">
                                 Francobollo da 5 centesimi del Regno d'Italia
                             </stamp>
                         </p>
