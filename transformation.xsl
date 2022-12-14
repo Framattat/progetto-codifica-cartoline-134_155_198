@@ -171,12 +171,14 @@
     <!-- Template text cartolina OK-->
     <xsl:template match="tei:text">
         <div class="text_c">
+            <!-- Cartolina testo fronte -->
             <xsl:variable name="id_text_f" select="tei:body/tei:div[@type='fronte']/@facs"/>
             <div class="text_fronte visible">
                 <xsl:attribute name="id">
                     <xsl:value-of select="$id_text_f"/>
                 </xsl:attribute>
                 <div class="desc_fronte">
+                    <h3>Fronte</h3>
                     <p>
                         Descrizione: <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:figDesc"/>
                     </p>
@@ -202,19 +204,61 @@
                     </xsl:if>
                 </div>
             </div>
-          <xsl:variable name="id_text_r" select="tei:body/tei:div[@type='retro']/@facs"/>
-          <div class="text_retro">
-            <xsl:attribute name="id">
-              <xsl:value-of select="$id_text_r"/>
-            </xsl:attribute>
-            <div class="desc_retro">
-              <div>
-                <xsl:apply-templates select="tei:body/tei:div[2]/tei:fw[1]"/>
-              </div>
-              <xsl:apply-templates select="tei:body/tei:div[2]/tei:div"/>
+            <!-- Cartolina testo retro -->
+            <xsl:variable name="id_text_r" select="tei:body/tei:div[@type='retro']/@facs"/>
+            <div class="text_retro">
+                <xsl:attribute name="id">
+                    <xsl:value-of select="$id_text_r"/>
+                </xsl:attribute>
+                <div class="desc_retro">
+                    <h3>Retro</h3>
+                    <xsl:apply-templates select="tei:body/tei:div[@type='retro']/tei:fw[1]"/>
+                    <xsl:apply-templates select="tei:body/tei:div[@type='retro']/tei:div"/>
+                </div>
             </div>
-          </div>
         </div>
+    </xsl:template>
+
+    <!-- Template per le note del fronte OK -->
+    <xsl:template match="tei:body/tei:div[1]/tei:figure/tei:note">
+        <xsl:variable name="temp_id" select="current()/@facs"/>
+        <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
+        <div class="stamp">
+            <xsl:attribute name="id">
+                <xsl:value-of select="$final_id"/>
+            </xsl:attribute>
+            <p>Note:
+            <xsl:value-of select="text()"/>
+            <xsl:if test="$temp_id = '#f155_firma'">
+                Firma non leggibile
+            </xsl:if>
+            </p>
+            <br/><br/>
+        </div>
+    </xsl:template>
+
+    <!-- Template per fw del fronte OK-->
+    <xsl:template match="tei:body/tei:div[1]/tei:figure/tei:fw">
+        <xsl:variable name="temp_id" select="current()/@facs"/>
+        <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
+        <div class="stamp">
+            <xsl:attribute name="id">
+                <xsl:value-of select="$final_id"/>
+            </xsl:attribute>
+            <xsl:variable name="temp_id_fw_fronte" select="@facs"/>
+            <xsl:variable name="final_id_fw_fronte" select="substring-after($temp_id_fw_fronte, '#')"/>
+            <xsl:attribute name="id">
+                <xsl:value-of select="$final_id_fw_fronte"/>
+            </xsl:attribute>
+            <p>
+                <xsl:if test="@type='logo_cartolina'">
+                    Logo:
+                </xsl:if>
+                <xsl:value-of select="text()"/>
+                <xsl:apply-templates select="tei:unclear/child::node()"/>
+            </p>
+        </div>
+        <br/>
     </xsl:template>
 
     <!-- Template message cartolina OK-->
@@ -225,8 +269,13 @@
             <xsl:attribute name="id">
                 <xsl:value-of select="$final_id"/>
             </xsl:attribute>
-            <xsl:apply-templates select="tei:opener/tei:dateline"/>
-            <xsl:apply-templates select="tei:closer"/>
+            <p>
+                <strong>Data e luogo messaggio:</strong> <xsl:apply-templates select="tei:opener"/>
+            </p>
+            <p>
+                <strong>Omaggi e Firma:</strong><xsl:apply-templates select="tei:closer"/>
+            </p>
+            
           <!--  
           <xsl:choose>
                 <xsl:when test="count(tei:closer/tei:dateline)>0">
@@ -250,6 +299,53 @@
             -->
         </div>
     </xsl:template>
+
+    <!-- Template per opener OK-->
+    <xsl:template match="tei:opener">
+        <xsl:choose>
+            <xsl:when test="count(tei:placeName/tei:unclear)>0">
+                    <xsl:apply-templates select="tei:placeName/tei:unclear"/>
+                    <xsl:value-of select="tei:placeName/tei:unclear/following-sibling::text()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="tei:placeName"/>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:value-of select="$space" disable-output-escaping="yes"/>
+        <xsl:apply-templates select="tei:w"/>
+        <xsl:value-of select="$space" disable-output-escaping="yes"/>
+        <xsl:apply-templates select="tei:date/child::node()"/>
+    </xsl:template>
+
+    <!-- Template per closer OK-->
+    <xsl:template match="tei:closer">
+        <p>
+            <xsl:apply-templates select="tei:salute"/>
+        </p>
+        <p>
+            <xsl:apply-templates select="tei:signed"/>
+        </p>
+    </xsl:template>
+
+    <!-- Template per salute OK-->
+    <xsl:template match="tei:salute">
+        <xsl:if test="count(tei:unclear[@reason='eccentric_ductus'])>0">
+            -<xsl:apply-templates select="tei:unclear/child::node()"/>
+        </xsl:if>
+    </xsl:template>
+
+    <!-- Template per signed OK-->
+    <xsl:template match="tei:signed"> 
+        <xsl:choose>
+            <xsl:when test="count(tei:persName/tei:addName[@type='alias'])>0">
+                -(Alias)<xsl:value-of select="tei:persName"/>
+            </xsl:when>
+            <xsl:otherwise>
+                -<xsl:value-of select="tei:persName"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <!-- Template destination cartolina OK-->
     <xsl:template match="tei:body/tei:div[@type='retro']/tei:div[@type='destination']">
       <div class="destination_div">
@@ -266,7 +362,7 @@
           <xsl:apply-templates select="tei:p/tei:stamp"/>
         </p>
       </div>
-        <xsl:if test="count(tei:body/tei:div[@type='retro']/tei:fw)>0">
+        <xsl:if test="count(following-sibling::tei:fw)>0">
             <div class="note_segni_div">
                 <p>
                     <strong>Note e altri segni: </strong>
@@ -382,7 +478,7 @@
         <br/>
     </xsl:template>
 
-    <!-- Template per i front work -->
+    <!-- Template per i front work OK-->
     <xsl:template match="tei:fw">
         <xsl:variable name="temp_id_stamp" select="@facs"/>
         <xsl:variable name="final_id_stamp" select="substring-after($temp_id_stamp, '#')"/>
@@ -390,112 +486,47 @@
             <xsl:attribute name="id">
                 <xsl:value-of select="$final_id_stamp"/>
             </xsl:attribute>
-            <xsl:if test="@type='no.cartolina'">
-                <a class="bold">Numero cartolina: </a>
-            </xsl:if>
-            <xsl:value-of select="text()"/>
-            <xsl:value-of select="tei:placeName"/>
-            <br/>
-            <span>
-                <xsl:choose>
-                    <xsl:when test="count(//tei:zone[@xml:id = $final_id_stamp]/@ulx)>0">
-                        <xsl:attribute name="data-ulx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@ulx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-uly">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@uly"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lrx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@lrx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lry">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@lry"/>
-                        </xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="data-points">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id_stamp]/@points"/>
-                        </xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </span>
+            <p>
+                <xsl:if test="@type='n_cartolina'">
+                    Numero cartolina:
+                </xsl:if>
+                <xsl:value-of select="text()"/>
+                <xsl:value-of select="tei:placeName"/>
+                <br/>
+            </p>
         </div>
     </xsl:template>
 
     <!-- VARIE -->
+    <!-- Template per w -->
+    <xsl:template match="tei:w">
+        <xsl:value-of select="text()"/>
+        <xsl:value-of select="tei:pc"/>
+    </xsl:template>
+    <!-- Template per damage -->
     <xsl:template match="tei:damage">
         <xsl:value-of select="text()"/>
         <xsl:value-of select="tei:unclear"/>
     </xsl:template>
 
-    <xsl:template match="tei:opener/tei:salute">
-        <xsl:choose>
-            <xsl:when test="count(tei:choice)>0">
-                <xsl:value-of select="text()"/>
-                <a class="text-error">
-                    <xsl:value-of select="tei:choice/tei:sic"/>
-                </a>
-                <xsl:value-of select="$space" disable-output-escaping="yes"/>
-                <a class="text-fix">[<xsl:value-of select="tei:choice/tei:corr"/>]
-                </a>
-                <xsl:value-of select="$space" disable-output-escaping="yes"/>
-                <xsl:value-of select="tei:choice/following-sibling::text()"/>
-                <br/>
-            </xsl:when>
-            <xsl:when test="count(tei:unclear)>0">
-                <xsl:value-of select="text()"/>
-                <xsl:apply-templates select="tei:unclear"/>
-                <xsl:value-of select="tei:unclear/following-sibling::text()"/>
-                <br/>
-            </xsl:when>
-            <xsl:when test="count(tei:hi)>0">
-                <xsl:value-of select="text()"/>
-                <xsl:value-of select="$space" disable-output-escaping="yes"/>
-                <a class="underline">
-                    <xsl:apply-templates select="tei:hi/tei:seg"/>
-                </a>
-                <xsl:value-of select="tei:hi/following-sibling::text()"/>
-                <br/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="text()"/>
-                <br/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
-    <xsl:template match="tei:closer">
-        <xsl:apply-templates select="tei:signed"/>
-        <xsl:apply-templates select="tei:dateline"/>
-    </xsl:template>
-
-    <xsl:template match="tei:signed">
-        <xsl:value-of select="tei:persName"/>
-        <xsl:if test="count(tei:persName/tei:gap)>0">[...]</xsl:if>
-        <br/>
-    </xsl:template>
-
-    <xsl:template match="tei:dateline">
-        <div class="dateline_div">
-            <a class="bold">Data e luogo: </a>
-            <xsl:apply-templates select="tei:placeName"/>
-            <xsl:apply-templates select="tei:date"/>
-        </div>
-        <br/>
-    </xsl:template>
-
+    <!-- Template per placeName -->
     <xsl:template match="tei:placeName">
         <xsl:value-of select="text()"/>
         <xsl:value-of select="$space" disable-output-escaping="yes"/>
     </xsl:template>
 
+    <!-- Template per unclear -->
     <xsl:template match="tei:unclear">
         <xsl:value-of select="text()"/>
         <xsl:apply-templates select="child::node()"/>
     </xsl:template>
 
+    <!-- Template per i child di unclear -->
     <xsl:template match="tei:unclear/child::node()">
         <xsl:choose>
+            <xsl:when test="name() = 'hi'">
+                <xsl:value-of select="text()"/>
+            </xsl:when>
             <xsl:when test="name() = 'seg'">
                 <xsl:value-of select="text()"/>
             </xsl:when>
@@ -506,10 +537,11 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- Template per seg -->
     <xsl:template match="tei:seg">
         <xsl:choose>
-            <xsl:when test="count(tei:g)>0">
-                <xsl:value-of select="tei:g"/>
+            <xsl:when test="count(tei:seg)>0">
+                <xsl:value-of select="tei:seg"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="text()"/>
@@ -517,73 +549,19 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="tei:body/tei:div[1]/tei:figure/tei:note">
-        <xsl:variable name="temp_id" select="current()/@facs"/>
-        <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
-        <div class="stamp">
-            <xsl:attribute name="id">
-                <xsl:value-of select="$final_id"/>
-            </xsl:attribute>
-            <a class="titolo_note bold">Note: </a><br/>
-            <xsl:value-of select="text()"/>
-            <br/><br/>
-        </div>
-    </xsl:template>
-
-    <xsl:template match="tei:body/tei:div[1]/tei:figure/tei:fw">
-        <xsl:variable name="temp_id" select="current()/@facs"/>
-        <xsl:variable name="final_id" select="substring-after($temp_id, '#')"/>
-        <div class="stamp">
-            <xsl:attribute name="id">
-                <xsl:value-of select="$final_id"/>
-            </xsl:attribute>
-            <span>
-                <xsl:choose>
-                    <xsl:when test="count(//tei:zone[@xml:id = $final_id]/@ulx)>0">
-                        <xsl:attribute name="data-ulx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@ulx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-uly">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@uly"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lrx">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lrx"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-lry">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@lry"/>
-                        </xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="data-points">
-                            <xsl:value-of select="//tei:zone[@xml:id = $final_id]/@points"/>
-                        </xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </span>
-            <xsl:if test="@type='logoCartolina'">
-                <a class="bold">Logo: </a>
-                <br/>
-            </xsl:if>
-            <xsl:if test="@type='idno.cartolina'">
-                <a class="bold">Identificatore cartolina: </a>
-                <br/>
-            </xsl:if>
-            <xsl:variable name="temp_id_fw_fronte" select="@facs"/>
-            <xsl:variable name="final_id_fw_fronte" select="substring-after($temp_id_fw_fronte, '#')"/>
-            <a>
-                <xsl:attribute name="id">
-                    <xsl:value-of select="$final_id_fw_fronte"/>
-                </xsl:attribute>
+    <!-- Template per date -->
+    <xsl:template match="tei:date/child::node()">
+        <xsl:choose>
+            <xsl:when test="name() = 'pc'">
                 <xsl:value-of select="text()"/>
-            </a>
-        </div>
-        <br/>
+            </xsl:when>
+            <xsl:when test="name() = 'num'">
+                <xsl:value-of select="text()"/>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="tei:date">
-        <xsl:apply-templates select="tei:unclear/child::node()"/>
-    </xsl:template>
-
+    <!-- Template per gap -->
     <xsl:template match="tei:gap">
         [...]
     </xsl:template>
@@ -600,8 +578,7 @@
         </div>
     </xsl:template>
   
-	<!--Template per l'edizione-->
-    <!--TODO Vedere cosa fa e commentare-->
+	<!--Template per respStmt -->
     <xsl:template match="tei:editionStmt/tei:respStmt">
         <p>
           <strong>

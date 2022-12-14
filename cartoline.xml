@@ -211,6 +211,13 @@
                             </objectDesc>
                         </physDesc>
                     </msDesc>
+                    <listPerson>
+                        <person xml:id="MN">
+                        <persName>
+                            Minos
+                        </persName>
+                        </person>
+                    </listPerson>
                  </sourceDesc>
             </fileDesc>
             
@@ -243,7 +250,11 @@
         <facsimile xml:id="c134">
             <!-- Fronte -->
             <surface xml:id="F134">
-                <graphic url="img/7694-134F.jpeg"/>
+                <graphic url="img/7694-134F.jpeg" width="1066.86666px" height="1663.86666px"/>
+                <!-- firma -->
+                <zone ulx="907" uly="1172" lrx="1012" lry="1239" xml:id="f134_firma"/>
+                <!-- logo -->
+                <zone ulx="91" uly="1519" lrx="357" lry="1599" xml:id="f134_logo" />
             </surface>
             
             <!-- Retro -->
@@ -278,7 +289,14 @@
                         <figDesc>
                             L'immagine rappresenta una donna che guarda arrivare un carro carico di fieno.
                         </figDesc>
-                        <head>Fieno ricchezza</head>
+                        <head>
+                            Fieno ricchezza di:<persName ref="#MN" facs="#f134_firma">Minos 917</persName>
+                      </head>
+                      <fw type="logo_cartolina" place="bottom-left" facs="#f134_logo">
+                        <unclear reason="faded">
+                          <seg>FIE</seg><gap reason="illegible"/><seg>O</seg><seg> R</seg><gap reason="illegible"/><seg>chezza</seg>
+                        </unclear>
+                      </fw>
                     </figure>
                 </div>
 
@@ -291,11 +309,11 @@
                             <pc type="comma">,</pc>
                             <w>lì<pc type="dot">.</pc></w>
                             <date when="1917-07-06">
-                                6
+                                <num>6</num>
                                 <pc type="slash">/</pc>
-                                7
+                                <num>7</num>
                                 <pc type="hyphen">-</pc>
-                                17
+                                <num>17</num>
                                 <pc type="hyphen">-</pc>
                             </date>
                         </opener>
@@ -305,11 +323,15 @@
                         <closer>
                             <salute>
                                 <unclear reason="eccentric_ductus">
-                                    <hi rend="decorated">A</hi>ffetuosi<gap reason="eccentric_ductus"/>
+                                    <hi rend="decorated">A</hi><seg>ffetuosi</seg><gap reason="eccentric_ductus"/>
                                 </unclear>
                             </salute>
                             <signed>
-                                <persName ref="#GC"><addName type="alias"><hi rend="decorated">G</hi>iovannino</addName></persName>
+                                <persName ref="#GC">
+                                    <addName type="alias">
+                                        <hi rend="decorated">G</hi>iovannino
+                                    </addName>
+                                </persName>
                             </signed>
                         </closer>
                     </div>
@@ -379,7 +401,7 @@
                             </address>
                         </p>
                     </div>
-                    <fw type="sig" place="left" facs="#r134_nota1" >Alfieri e Lacroix, ING. IMP. - Milano</fw>
+                    <fw type="sig" place="left" facs="#r134_nota1" >Alfieri e Lacroix, ING. IMP. - <placeName ref="MI">Milano</placeName></fw>
                     <fw type="sig" place="bottom" facs="#r134_logo">Logo DSN 6000-1</fw>
                     <fw type="footer" place="bottom-left" facs="#r134_nota2">Proprietà artistica riservata</fw>
                 </div>
@@ -512,7 +534,9 @@
         <facsimile xml:id="c155">
             <!-- Fronte -->
             <surface xml:id="F155">
-                <graphic url="img/7694-155F.jpeg"/>
+                <graphic url="img/7694-155F.jpeg" width='1055.86666px' height='1648.86666px' />
+                <!-- firma -->
+                <zone ulx="768" uly="1517" lrx="887" lry="1543" xml:id="f155_firma"/>
             </surface>
 
             <!-- Retro -->
@@ -548,7 +572,10 @@
                         <figDesc>
                             L'immagine rappresenta una donna con una lettera al petto, mentre ascolta un amorino sussurrarle all'orecchio.
                         </figDesc>
-                        <head>Donna con lettera e amorino</head>
+                        <head>Donna con lettera e amorino di:</head>
+                        <note xml:id="f155_autore_nd" facs="#f155_firma">
+                            <unclear reason="illegible"></unclear>
+                        </note>
                     </figure>
                 </div>
 
@@ -557,19 +584,15 @@
                     <div type="message" facs="#r155_msg">
                         <!-- messaggio del mittente, introduzione/saluto -->
                         <opener>
-                            <placeName ref="#MO">
-                                <hi rend="decorated">M</hi>odena
-                            </placeName>
+                            <placeName ref="#MO"><hi rend="decorated">M</hi>odena</placeName>
                             <pc type="comma">,</pc>
-                            <w>
-                                lì<pc type="dot">.</pc>
-                            </w>
+                            <w>lì<pc type="dot">.</pc></w>
                             <date when="1917-08-30">
-                                30
+                                <num>30</num>
                                 <pc type="slash">/</pc>
-                                8
+                                <num>8</num>
                                 <pc type="hyphen">-</pc>
-                                17
+                                <num>17</num>
                                 <pc type="hyphen">-</pc>
                             </date>
                         </opener>
@@ -579,7 +602,7 @@
                         <closer>
                             <salute>
                                 <unclear reason="eccentric_ductus">
-                                    <hi rend="decorated">A</hi>ffetuosi<gap reason="eccentric_ductus"/>
+                                    <hi rend="decorated">A</hi><seg>ffetuosi</seg><gap reason="eccentric_ductus"/>
                                 </unclear>
                             </salute>
                             <signed>
@@ -664,7 +687,7 @@
                     </div>
                     <fw type="sig" place="left" facs="#r155_nota1" >Proprietà Artistica riservata - И 2053-4</fw>
                     <fw type="sig" place="bottom-center" facs="#r155_logo">C•C•M</fw>
-                    <fw type="footer" place="bottom-left" facs="#r155_nota2">Visto Revisio<unclear reason="illegible" agent="ink">n</unclear>e Stampa - N. 1404 - <unclear reason="illegible" agent="ink">M</unclear>ilano.</fw>
+                    <fw type="footer" place="bottom-left" facs="#r155_nota2">Visto Revisione Stampa - N. 1404 - <placeName ref="#MI">Milano</placeName>.</fw>
                 </div>
             </body>
         </text>
@@ -769,6 +792,13 @@
                             </objectDesc>
                         </physDesc>
                     </msDesc>
+                    <listPerson>
+                        <person xml:id="OIL">
+                            <persName>
+                                Oilette
+                            </persName>
+                        </person>
+                    </listPerson>
                  </sourceDesc>
             </fileDesc>
             
@@ -801,7 +831,13 @@
         <facsimile xml:id="c198">
             <!-- Fronte -->
             <surface xml:id="F198">
-                <graphic url="img/7694-198F.jpeg"/>
+                <graphic url="img/7694-198F.jpeg" width='818.86666px' height='515.86666px' />
+                <!-- logo -->
+                <zone ulx="25" uly="439" lrx="169" lry="486" xml:id="f198_logo"/>
+                <!-- firma -->
+                <zone ulx="724" uly="476" lrx="792" lry="513" xml:id="f198_firma"/>
+                <!-- sporco e lettere -->
+                <zone ulx="46" uly="23" lrx="274" lry="264" xml:id="f198_nota1"/>
             </surface>
             
             <!-- Retro -->
@@ -843,7 +879,11 @@
                     <figure>
                         <graphic url="img/7694-198F.jpg"/>
                         <figDesc> Paesaggio in cui sono presenti alberi con foglie arancioni, pecore mentre pascolano e abitazioni in lontananza </figDesc>
-                        <head>Melrose Abbay</head>
+                        <head>
+                            Melrose Abbay di: <persName ref="#OIL" facs="#f198_firma">Oilette</persName>
+                        </head>
+                        <note facs="#f198_nota1">Sono presenti macchie di sporco e delle probabili lettere</note>
+                        <fw type="logo_cartolina" place="bottom-left" facs="#f198_logo">SCOTT'S COUNTRY MELROSE</fw>
                     </figure>
                 </div>
                 <div type="retro" facs="#R198">
@@ -852,17 +892,15 @@
                         <!-- messaggio del mittente, introduzione/saluto -->
                         <opener>
                             <placeName ref="#MO">
-                                <unclear reason="eccentric_ductus">
-                                    Mo<gap reason="eccentric_ductus"/>na
-                                </unclear>
+                                <unclear reason="eccentric_ductus"><seg>Mo</seg><gap reason="eccentric_ductus"/><seg>na</seg></unclear>
                             </placeName>
                             <w>lì<pc type="dot">.</pc></w>
                             <date when="1918-02-13">
-                                13
+                                <num>13</num>
                                 <pc type="slash">/</pc>
-                                2
+                                <num>2</num>
                                 <pc type="dot">.</pc>
-                                18
+                                <num>18</num>
                             </date>
                         </opener>
                         <!-- corpo del messaggio -->
@@ -871,11 +909,15 @@
                         <closer>
                             <salute>
                                 <unclear reason="eccentric_ductus">
-                                    <hi rend="decorated">A</hi>ffetuosi<gap reason="eccentric_ductus"/>
+                                    <hi rend="decorated">A</hi><seg>ffetuosi</seg><gap reason="eccentric_ductus"/>
                                 </unclear>
                             </salute>
                             <signed>
-                                <persName ref="#GC"><addName type="alias"><hi rend="decorated">G</hi>iovannino</addName></persName>
+                                <persName ref="#GC">
+                                    <addName type="alias">
+                                        <hi rend="decorated">G</hi>iovannino
+                                    </addName>
+                                </persName>
                             </signed>
                         </closer>
                     </div>
@@ -946,7 +988,7 @@
                     <fw type="address_zone" place="center" facs="#r198_nota3">For addresses only</fw>
                     <fw type="header" place="top" facs="#r198_header">Tuck's Post Card</fw>
                     <fw type="sig" place="top-left" facs="#r198_logo">Logo della corona inglese</fw>
-                    <fw type="footer" place="bottom-left" facs="#r198_printed">Printed in england</fw>
+                    <fw type="footer" place="bottom-left" facs="#r198_printed">Printed in <placeName ref="#ENG">england</placeName></fw>
                 </div>
             </body>
         </text>
