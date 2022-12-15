@@ -14,7 +14,7 @@
         </xsl:comment>
         <html>
             <head>
-                <title>
+                <title id="intro">
                     <xsl:value-of select="//tei:titleStmt/tei:title"/>
                 </title>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -25,13 +25,13 @@
                 <header>
                 	<a href="#intro">Introduzione</a>
                  <!-- TODO JS BOTTONI PER ATTIVARE LA VISTA DELLE CARTOLINE -->
-                  <a class="view">Cartolina 134</a>
-                  <a class="view">Cartolina 155</a>
-                  <a class="view">Cartolina 198</a>
+                  <a class="view" id="134">Cartolina 134</a>
+                  <a class="view" id="155">Cartolina 155</a>
+                  <a class="view" id="198">Cartolina 198</a>
                   <a href="#about">About</a>
                 </header>
               	<main>
-                    <div id="intro">
+                    <div>
                         <h1>
                             <xsl:value-of select="//tei:titleStmt/tei:title"/>
                         </h1>
@@ -42,7 +42,6 @@
                             <xsl:value-of select="/tei:teiCorpus/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msIdentifier/tei:repository"/>,
                             <xsl:value-of select="/tei:teiCorpus/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msIdentifier/tei:settlement"/>,
                             <xsl:value-of select="/tei:teiCorpus/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msIdentifier/tei:country"/>
-                            <hr/>
                             <strong>Legenda dei simboli:</strong>
                             <br/>
                             - (-'parola'-) indica l'attributo 'reason' del tag 'gap', codificate secondo indicazioni TEI.
@@ -56,7 +55,6 @@
                             - ['parola'] indica una parola corretta o la forma estesa.
                             <br/>
                             - ('<u>Lettere</u>') le lettere così formattate rappresentano una "decorazione" del testo.
-                            <hr/>
                         </p>
                 	</div>
                   <div class="c_holder visible" id="c134">
@@ -69,12 +67,11 @@
                         <xsl:apply-templates select="/tei:teiCorpus/tei:TEI[3]"/>
                   </div>
               	</main>
-                <hr/>
                 <footer>
                 	<div class="footer_text">
                         <p id="about">
                             <xsl:value-of select="//tei:editionStmt/tei:edition"/>
-                                <xsl:apply-templates select="/tei:teiCorpus/tei:teiHeader/tei:fileDesc"/>
+                            <xsl:apply-templates select="/tei:teiCorpus/tei:teiHeader/tei:fileDesc"/>
                         </p>
                     </div>
                 </footer>
@@ -86,7 +83,6 @@
     <!-- Template per le cartoline OK-->
     <xsl:template match="/tei:teiCorpus/tei:TEI">
         <xsl:apply-templates select="tei:teiHeader"/>
-        <hr/>
         <div class="radio_holder">
             <input type="radio">
                 <xsl:attribute name="type">radio</xsl:attribute>
@@ -132,7 +128,7 @@
             </h3>
             <xsl:choose> 
                     <xsl:when test="count(tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher)>0">
-                        <p><strong>Pubblicato da:</strong> <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/> </p>
+                        <p><strong>Pubblicato da: </strong> <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/> </p>
                 </xsl:when>
                 <xsl:otherwise>
                        <p>Non si conosce il publisher.</p> 
@@ -140,7 +136,7 @@
             </xsl:choose>
             <xsl:choose> 
                 <xsl:when test="count(tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace)>0">
-                    <p><strong>Luogo di pubblicazione:</strong> <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace"/> </p>
+                    <p><strong>Luogo di pubblicazione: </strong> <xsl:value-of select="tei:fileDesc/tei:sourceDesc/tei:bibl/tei:pubPlace"/> </p>
                 </xsl:when>
                 <xsl:otherwise>
                     <p> Non si conosce il luogo di pubblicazione. </p>
@@ -151,7 +147,7 @@
 
     <!-- Template facsimile cartolina OK-->
     <xsl:template match="tei:facsimile">
-        <div class="img_c">
+        <div class="img_c img_ori">
             <xsl:apply-templates select="tei:surface"/>
         </div>
     </xsl:template>
@@ -199,9 +195,9 @@
                             <xsl:value-of select="$id_firma"/>
                           </xsl:attribute>
                             <p>
-                              <strong>Autore:</strong>
+                              <strong>Opera:</strong>
                               <br/>
-                              <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:head/tei:persName"/>
+                              <xsl:value-of select="tei:body/tei:div[1]/tei:figure/tei:head"/>
                             </p>
                         </div>
                     </xsl:if>
@@ -238,6 +234,7 @@
             </xsl:attribute>
             <p>
                 <strong>Note:</strong>
+                <br/>
                 <xsl:value-of select="text()"/>
                 <xsl:if test="$temp_id = '#f155_firma'">
                     Firma non leggibile
@@ -377,7 +374,6 @@
                 <xsl:choose>
                     <xsl:when test="@type='postmark'">
                         <strong>Timbro:</strong>
-                        <br/>
                     </xsl:when>
                     <xsl:when test="@type='postage'">
                        <strong>Francobollo:</strong>
@@ -412,11 +408,14 @@
                 <br/>
             </xsl:when>
             <xsl:when test="count(tei:persName)>0">
-                <strong>Destinatario: </strong><xsl:apply-templates select="tei:persName"/>
+                <strong>Destinatario: </strong>
+                <br/>
+                <xsl:apply-templates select="tei:persName"/>
                 <br/>
             </xsl:when>
             <xsl:when test="count(tei:hi)>0">
                 <strong>Indirizzo:</strong>
+                <br/>
                 <u><xsl:value-of select="tei:hi[1]"/></u>
                 <xsl:value-of select="tei:seg[1]"/>
                 <xsl:value-of select="$space" disable-output-escaping="yes"/>
@@ -429,11 +428,14 @@
                 <xsl:value-of select="tei:num"/>
                 <br/>
                 <strong>Note:</strong>
+                <br/>
                 <xsl:value-of select="tei:note"/>
                 <br/>
             </xsl:when>
             <xsl:when test="count(tei:placeName)>0">
-                <strong>Luogo:</strong> <xsl:apply-templates select="tei:placeName"/>
+                <strong>Luogo:</strong>
+                <br/>
+                <xsl:apply-templates select="tei:placeName"/>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
@@ -502,7 +504,7 @@
     <xsl:template match="tei:unclear/child::node()">
         <xsl:choose>
             <xsl:when test="name() = 'hi'">
-                <xsl:value-of select="text()"/>
+                <u><xsl:value-of select="text()"/></u>
             </xsl:when>
             <xsl:when test="name() = 'choice'">
                 (! '<xsl:apply-templates select="tei:sic"/>' !)

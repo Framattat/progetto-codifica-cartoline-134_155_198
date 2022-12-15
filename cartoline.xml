@@ -342,14 +342,14 @@
                                 <unclear reason="faded">
                                     <gap reason="faded"/><seg>o</seg><gap reason="faded"/><seg>ena</seg>
                                 </unclear>
+                                 <unclear reason="faded">
+                                    <gap reason="faded"/><seg>errovi</seg><gap reason="faded"/>
+                                </unclear>
                                 <date> 
                                     <unclear reason="faded">
                                         <gap reason="faded"/><num>817</num><gap reason="illegible"/>
                                     </unclear> 
                                 </date>
-                                 <unclear reason="faded">
-                                    <gap reason="faded"/><seg>errovi</seg><gap reason="faded"/>
-                                </unclear>
                                 <note>
                                     Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capiscono alcuni numeri presenti in esso. 
                                 </note>
@@ -621,14 +621,14 @@
                                 <unclear reason="illegible">
                                     Mod<gap reason="illegible"/>
                                 </unclear>
+                                <unclear reason="faded">
+                                    Ferro<gap reason="illegible"/>
+                                </unclear>
                                 <date>
                                     <unclear reason="faded">
                                         <num>30817</num><gap reason="faded"/>
                                     </unclear>
                                 </date>
-                                <unclear reason="faded">
-                                    Ferro<gap reason="illegible"/>
-                                </unclear>
                                 <note>
                                     Il timbro è stato posto sopra il francobollo. Si suppone riporti "Modena" e "Ferrovia", non si capisce alcuni numeri presenti in esso.
                                 </note>
@@ -927,14 +927,14 @@
                                 <unclear reason="omitted-in-original">
                                     Moden<gap reason="omitted-in-original"/>
                                 </unclear> 
-                                <date> 
-                                    <unclear reason="faded"><num>13-21-8</num> <gap reason="illegible"/></unclear> 
-                                </date>
                                 <unclear reason="omitted-in-original">
                                     Ferr<gap reason="omitted-in-original"/>
                                 </unclear>
+                                <date> 
+                                    <unclear reason="faded"><num>13-21-8</num> <gap reason="illegible"/></unclear> 
+                                </date>
                                 <note>
-                                    Il timbro risulta decentrato rispetto la cartolina, mancano quindi delle lettere e numeri. Si presuppone che il timbro riporti: "modena e la dicitura "ferrovia".
+                                    Il timbro risulta decentrato rispetto la cartolina, mancano quindi delle lettere e numeri. Si presuppone che il timbro riporti: "Modena" e la dicitura "ferrovia".
                                 </note>
                             </stamp>
                             <stamp type="postage" facs="#r198_francob">
